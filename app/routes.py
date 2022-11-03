@@ -5,10 +5,10 @@ from flask import render_template
 def index():
     return render_template("index.html")
 
-@app.route('/register', methods=['GET'])
-def register():
-    return render_template("/auth/register.html")
+@app.route('/sign-up', methods=['GET'])
+def signUp():
+    return render_template("/auth/sign-up.html")
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    return render_template("/auth/login.html")
+@app.route('/sign-in', methods=['GET', 'POST'])
+def signIn():
+    return render_template("/auth/sign-in.html")

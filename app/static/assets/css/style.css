@@ -1,0 +1,13 @@
+@import url("./fonts.css");
+
+:root {
+    --Poppins-Light: 'Poppins-Light';
+    --Poppins-Regular: 'Poppins-Regular';
+    --Poppins-Medium: 'Poppins-Medium';
+    --Poppins-SemiBold: 'Poppins-SemiBold';
+    --Poppins-Bold: 'Poppins-Bold';
+}
+
+* {
+    font-family: var(--Poppins-Regular);
+}
