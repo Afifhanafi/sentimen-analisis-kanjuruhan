@@ -3,3 +3,51 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 
 pip install flask flask-migrate python-dotenv openpyxl pandas sklearn flask-sqlalchemy pymysql mysqlclient sastrawi
+
+//untuk upload project github
+git add .
+git commit -m "Initial Commit"
+git push -u origin master
+
+// untuk update project github
+git pull origin main 
+
+// run git bush
+python -V
+pip -V
+pipenv shell
+twint -s "PSSI" -o SetelahKejadianKajuruhan --since 2022-10-01 --until 2022-10-06 --csv
+
+[ctrl+shift+~]
+untuk membuka terminal
+
+[Install Virtual Env] 
+python -m venv envi(ini nama folder)
+
+[running Vir. Env]
+.\tavenv\Scripts\activate
+
+[Install module Flask]
+pip install flask
+
+[non aktif venv]
+deactivate
+
+[cek pip list]
+pip list
+
+[Runn Program]
+python main.py(main.py sebagai nama yang ingin di run)
+
+[bikin route baru]
+@app.route("/about")
+def about():
+    return "about page"
+
+    app.run(debug=True)
+
+[Ganti port]
+app.run(port=8080, debug=True)
+
+[flask publik]
+app.run(host="0.0.0.0", port=8080, debug=True)
