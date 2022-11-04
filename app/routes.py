@@ -12,3 +12,5 @@ def signUp():
 @app.route('/sign-in', methods=['GET', 'POST'])
 def signIn():
     return render_template("/auth/sign-in.html")
+
+    

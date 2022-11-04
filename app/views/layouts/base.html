@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Analisis sentimen berbasis website" />
+    <meta name="author" content="Mohammad Afif Hanafi" />
+    <title>Analisis Sentimen</title>
+
     {% include 'includes/style.html' %}
+
+    <!-- Specific Page CSS goes HERE  -->
+    <style>
+        /* style the elements with CSS */
+        #pleaserotate-graphic {
+            fill: #000;
+        }
+
+        #pleaserotate-backdrop {
+            color: #000;
+            background-color: #fff;
+            z-index: 2000;
+        }
+
+            {
+            % block stylesheets %
+        }
+
+            {
+            % endblock %
+        }
+    </style>
+
 </head>
-<body>
+
+<body class="">
     {% include 'includes/header.html' %}
 
     {% block content %}{% endblock %}
 
     {% include 'includes/script.html' %}
 </body>
+
 </html>

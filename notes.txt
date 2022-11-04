@@ -4,10 +4,13 @@ pip freeze > requirements.txt
 
 pip install flask flask-migrate python-dotenv openpyxl pandas sklearn flask-sqlalchemy pymysql mysqlclient sastrawi
 
+//install python venv
+pip install python-dotenv
+
 //untuk upload project github
 git add .
 git commit -m "Initial Commit"
-git push -u origin master
+git push -u origin main
 
 // untuk update project github
 git pull origin main 
@@ -22,7 +25,7 @@ twint -s "PSSI" -o SetelahKejadianKajuruhan --since 2022-10-01 --until 2022-10-0
 untuk membuka terminal
 
 [Install Virtual Env] 
-python -m venv envi(ini nama folder)
+python -m venv venv(ini nama folder)
 
 [running Vir. Env]
 .\tavenv\Scripts\activate
