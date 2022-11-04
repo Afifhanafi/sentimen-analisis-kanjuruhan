@@ -284,6 +284,7 @@ slangwords_list = [
     "prasmul:perasaan saja\n",
     "prcya:percaya\n",
     "prnh:pernah\n",
+    "pssi:persatuan sepak bola seluruh indonesia\n",
     "pst:pesat\n",
     "recokin:ganggu\n",
     "rempong:repot\n",
