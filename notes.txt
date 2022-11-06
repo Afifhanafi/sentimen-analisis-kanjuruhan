@@ -2,7 +2,7 @@ pip install -r requirements.txt
 
 pip freeze > requirements.txt
 
-pip install flask flask-migrate flask-sqlalchemy python-dotenv openpyxl pandas sklearn flask-sqlalchemy pymysql mysqlclient sastrawi
+pip install flask flask-migrate python-dotenv openpyxl pandas sklearn flask-sqlalchemy pymysql mysqlclient sastrawi
 
 //install python venv
 pip install python-dotenv
@@ -54,11 +54,3 @@ app.run(port=8080, debug=True)
 
 [flask publik]
 app.run(host="0.0.0.0", port=8080, debug=True)
-
-
-Migrate Database
-flask db init
-
-flask db migrate -m 'Initial Migrate'
-
-flask db upgrade
