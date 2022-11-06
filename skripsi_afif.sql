@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2022 at 06:43 AM
+-- Generation Time: Nov 06, 2022 at 08:00 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `skripsi_afif`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alembic_version`
+--
+
+CREATE TABLE `alembic_version` (
+  `version_num` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `alembic_version`
+--
+
+INSERT INTO `alembic_version` (`version_num`) VALUES
+('bc8be9bdc716');
 
 -- --------------------------------------------------------
 
@@ -2173,9 +2190,35 @@ INSERT INTO `dataset` (`id`, `created_at`, `username`, `raw_tweets`, `clean_twee
 (205, '2022-03-27 14:13:40', 'I17082000', '@rezim_TikTok @Adiiiinnnnnn @RajaMandiri70 @DokterTifa Share disini berita atau video Pak @jokowi menginginkan jabatan Presiden 3 periode..\nJangan asal bacot dan firnah..\nKalau anda ga bisa membuktikan..\nFix.. ???????? https://t.co/43m7DnWfFf', 'berita video jabat presiden periode bicara fitnah bukti', 'Negatif'),
 (206, '2022-03-27 14:11:40', 'I17082000', '@RajaMandiri70 @Adiiiinnnnnn @DokterTifa Share disini berita atau video Pak @jokowi menginginkan jabatan Presiden 3 periode..\nJangan asal bacot dan firnah..\nKalau ga bisa.. Fix.. ???????? https://t.co/kcwuPycSBM', 'berita video jabat presiden periode bicara fitnah', 'Negatif');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` smallint(6) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'afif', 'password'),
+(2, 'andre', 'qwerty');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `alembic_version`
+--
+ALTER TABLE `alembic_version`
+  ADD PRIMARY KEY (`version_num`);
 
 --
 -- Indexes for table `daftar_slangwords`
@@ -2193,6 +2236,12 @@ ALTER TABLE `daftar_stopwords`
 -- Indexes for table `dataset`
 --
 ALTER TABLE `dataset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2216,6 +2265,12 @@ ALTER TABLE `daftar_stopwords`
 --
 ALTER TABLE `dataset`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
