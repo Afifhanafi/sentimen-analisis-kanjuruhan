@@ -1,65 +1,40 @@
 from app import app, db
-from flask import render_template, request, session, flash, redirect, url_for
+from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, login_user, logout_user, current_user
 from .models import Dataset, Daftar_slangwords, Daftar_stopwords, Users
+from app.controllers.authcontroller import AuthController
 
+@app.route('/beranda', methods=['GET'])
 @app.route('/', methods=['GET'])
 @login_required
 def index():
-    return render_template("index.html", username=current_user)
+    return render_template("/pages/index.html")
 
 @app.route('/sign-up', methods=['GET', 'POST'])
-def signUp():
-    if request.method == 'POST':
-        user = Users.query.filter_by(username = request.form['username']).first()
-        if user:
-            flash(f"Username sudah terdaftar", "danger")
+def signUpRoute():
+    if request.method == 'GET':
+        return render_template("/auth/sign-up.html")
+    elif request.method == 'POST':
+        if AuthController(request.form).signUp():
+            return redirect(url_for('index'))
+        else:
             return render_template("/auth/sign-up.html")
         
-        new_user = Users(
-            username = request.form['username'],
-            password = request.form['password']
-        )
-        
-        db.session.add(new_user)
-        db.session.commit()
-        
-        session['id'] = new_user.id
-        session['username'] = new_user.username
-        login_user(new_user)
-        
-        return redirect(url_for('index'))
-    return render_template("/auth/sign-up.html")
-
 @app.route('/sign-in', methods=['GET', 'POST'])
-def signIn():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    
-    elif request.method == 'POST':
-        user = Users.query.filter_by(username = request.form['username']).first()
-        if not user:
-            flash(f"Username tidak terdaftar", "danger")
-            return render_template("/auth/sign-in.html")
-        elif request.form['password'] != user.password:
-            flash(f"Password anda salah", "danger")
-            return render_template("/auth/sign-in.html")
+def signInRoute():
+    if request.method == 'GET':
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
         else:
-            # session['id'] = user.id
-            # session['username'] = user.username
+            return render_template("/auth/sign-in.html")
+    elif request.method == 'POST':
+        if AuthController(request.form).signIn():
+            return redirect(url_for('index'))
+        else:
+            return render_template("/auth/sign-in.html")
             
-            login_user(user)
-        
-        return redirect(url_for('index'))
-    return render_template("/auth/sign-in.html")
-
-@app.route('/sign-out')
-def signOut():
-    # session.pop('id', None)
-    # session.pop('username', None)
-    
-    logout_user()
-    
-    flash(f"Anda sudah sign out", "warning")
-    return redirect(url_for('signIn'))
+@app.route('/sign-out', methods=['GET'])
+def signOutRoute():
+    AuthController().signOut()
+    return redirect(url_for('signInRoute'))
     
