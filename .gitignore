@@ -4,3 +4,4 @@
 /.vscode
 /controllers/__pycache__
 /migrations/__pycache__
+/vcpkg
