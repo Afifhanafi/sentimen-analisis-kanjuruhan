@@ -13,13 +13,16 @@
 					<a class="nav-link"><span class="pcoded-micon"><i class="fa-solid fa-book-open"></i></span><span
 							class="pcoded-mtext">Kamus</span></a>
 					<ul class="pcoded-submenu">
-						<li><a href="#">Daftar <em>Kata Slang</em></a></li>
+						<li><a href="{{ url_for('slangwordsIndex') }}">Daftar <em>Kata Slang</em></a></li>
 						<li><a href="#">Daftar <em>Kata Stop</em></a></li>
 					</ul>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-table-columns"></i></span><span
+				<li class="nav-item pcoded-hasmenu" style="cursor:pointer;">
+					<a class="nav-link"><span class="pcoded-micon"><i class="fa-solid fa-book-open"></i></span><span
 							class="pcoded-mtext">Dataset</span></a>
+					<ul class="pcoded-submenu">
+						<li><a href="#">Sebelum Insiden Kanjuruhan</a></li>
+						<li><a href="#">Sesudah Insiden Kanjuruhan</a></li>
+					</ul>
 				</li>
 				<li class="nav-item">
 					<a href="#" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-tags"></i></span><span

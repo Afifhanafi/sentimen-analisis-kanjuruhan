@@ -37,4 +37,7 @@ def signInRoute():
 def signOutRoute():
     AuthController().signOut()
     return redirect(url_for('signInRoute'))
-    
+
+@app.route('/kata-slang', methods=['GET'])
+def slangwordsIndex():
+    return render_template("/pages/slangwords.html")
