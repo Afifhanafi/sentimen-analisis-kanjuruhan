@@ -1,7 +1,7 @@
 from app import db, login_Manager
 from flask_login import UserMixin
 
-class Dataset(db.Model, UserMixin):
+class DatasetBefore(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.String(100))
     username = db.Column(db.String(100))
@@ -10,7 +10,18 @@ class Dataset(db.Model, UserMixin):
     label = db.Column(db.String(10))
      
     def __repr__(self):
-        return '<Kata Slang {}>'.format(self.kata_slang)
+        return '<Dataset Before {}>'.format(self.raw_tweets)
+
+class DatasetAfter(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.String(100))
+    username = db.Column(db.String(100))
+    raw_tweets = db.Column(db.Text)
+    clean_tweets = db.Column(db.Text)
+    label = db.Column(db.String(10))
+     
+    def __repr__(self):
+        return '<Dataset After {}>'.format(self.raw_tweets)
     
 class Daftar_slangwords(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

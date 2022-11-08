@@ -14,7 +14,7 @@ class SlangwordController:
                 )
                 
                 db.session.add(uploadSlangwords)
-                db.session.commit()
+            db.session.commit()
             
             flash("The file successfully imported", "success")
         except Exception as e:

@@ -4,9 +4,34 @@ $('#table_slangwords').DataTable()
 $('#table_stopwords').DataTable()
 
 
-$('#table_dataset').DataTable({
+$('#table_dataset_before').DataTable({
     "deferRender": true,
-    "ajax": "/list_dataset/",
+    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
+    "columns": [
+        {
+            data: null, 
+            "render": function (data, type, full, meta) {
+                return  meta.row + 1;
+            },
+            className: 'text-center',
+        },
+        {
+            data: 'created_at',
+            className: 'text-center',
+        },
+        { 
+            data: 'username',
+            className: 'text-center',
+        },
+        {
+            data: 'raw_tweets',
+        },
+    ],
+})
+
+$('#table_dataset_after').DataTable({
+    "deferRender": true,
+    "ajax": "/api/dataset-sesudah-tragedi-kanjuruhan",
     "columns": [
         {
             data: null, 
