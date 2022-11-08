@@ -1,8 +1,8 @@
-"""Add users & slangwords
+"""Initial commit
 
-Revision ID: 80491819fdbf
+Revision ID: dc46e7f4ee0d
 Revises: 
-Create Date: 2022-11-08 12:36:48.695216
+Create Date: 2022-11-08 14:39:46.595922
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '80491819fdbf'
+revision = 'dc46e7f4ee0d'
 down_revision = None
 branch_labels = None
 depends_on = None
