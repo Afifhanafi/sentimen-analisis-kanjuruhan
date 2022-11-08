@@ -4,9 +4,6 @@ from app.models import Daftar_slangwords
 import pandas as pd
 
 class SlangwordController:
-    def __init__(self):
-        pass
-    
     def importData(self, file):
         try:
             readCSV = pd.read_csv(file, sep=';', encoding='unicode_escape')
@@ -40,7 +37,7 @@ class SlangwordController:
             return e
     
     def retrieve(self):
-        data_slangwords = Daftar_slangwords.query.all()
+        data_slangwords = Daftar_slangwords.query.order_by(Daftar_slangwords.kata_slang).all()
         return data_slangwords
     
     def update(self, *args):
