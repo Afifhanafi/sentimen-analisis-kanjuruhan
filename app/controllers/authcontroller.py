@@ -1,9 +1,9 @@
 from app import db
-from flask import request, flash, redirect, url_for
+from flask import flash
 from flask_login import login_required, login_user, logout_user, current_user
 from app.models import Users
 
-class AuthController():
+class AuthController:
     def __init__(self, *args):
         if args:
             self.username = args[0]["username"]

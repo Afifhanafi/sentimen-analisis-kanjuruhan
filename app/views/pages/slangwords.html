@@ -63,7 +63,7 @@
                                         {% if slangwords_data %}
                                             {% for row in slangwords_data %}
                                                 <tr>
-                                                    <td class="text-center" width="5%">{{ row.id }}</td>
+                                                    <td class="text-center" width="5%">{{ loop.index }}</td>
                                                     <td class="text-center">{{ row.kata_slang }}</td>
                                                     <td class="text-center">{{ row.kata_baku }}</td>
                                                     <td class="text-center" width="30%">
@@ -82,9 +82,10 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
 
-                                                            <form action="#" method="POST">
+                                                            <form action="{{ url_for('slangwordUpdateRoute') }}" method="POST">
                                                                 <input type="hidden" name="id" value="{{row.id}}" />
                                                                 <div class="modal-body text-muted">
+
                                                                     <div class="form-group px-4 text-left">
                                                                         <label style="font-style: normal;">Kata Slang</label>
                                                                         <input type="text" name="slangword" value="{{ row.kata_slang }}" class="form-control" required />
@@ -115,7 +116,7 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
 
-                                                            <form action="#" method="POST">
+                                                            <form action="{{ url_for('slangwordDeleteRoute') }}" method="POST">
                                                                 <input type="hidden" name="id" value="{{row.id}}" />
                                                                 <div class="modal-body text-muted">
                                                                     <div class="form-group px-4 text-left">
@@ -156,8 +157,8 @@
                         </div>
                        <form method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
-                                <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat Excel (.xls atau .xlsx)</label>
-                                <input class="form-control" name="fileExcel" type="file" id="formFile">
+                                <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat CSV (.csv)</label>
+                                <input class="form-control" name="fileCSV" type="file" id="formFile" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -178,7 +179,7 @@
                             <h5 class="modal-title" id="tambahDataSlang" style="font-style: normal;">Tambah Data</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="#" method="POST">
+                        <form action="" method="POST">
 							<div class="modal-body text-muted">
 								<div class="form-group px-4 text-left">
 									<label style="font-style: normal;">Kata Slang</label>
