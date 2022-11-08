@@ -62,3 +62,5 @@ flask db init
 flask db migrate -m 'Initial Migrate'
 
 flask db upgrade
+
+feather icon-users
