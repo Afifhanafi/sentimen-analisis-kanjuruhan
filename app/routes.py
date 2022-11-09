@@ -6,6 +6,7 @@ from app.controllers.slangwordcontroller import SlangwordController
 from app.controllers.stopwordcontroller import StopwordController
 from app.controllers.datacontroller import DataController
 from app.controllers.labelcontroller import LabelController
+from app.controllers.preprocessingcontroller import PreprocessingController
 
 @app.route('/beranda', methods=['GET'])
 @app.route('/', methods=['GET'])
@@ -106,7 +107,7 @@ def stopwordDeleteRoute():
 
 @app.route('/api/dataset-sebelum-tragedi-kanjuruhan', methods=["GET"])
 def apiDatasetBeforeKanjuruhan():
-    dataset = DataController().retrieveBefore()
+    dataset = DataController().retrieveJSONBefore()
     return dataset
 
 @app.route('/dataset/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
@@ -129,11 +130,12 @@ def labellingDatasetBefore():
 
 @app.route('/preprocessing/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 def preprocessingDatasetBefore():
+    jumlahDataset = DataController().retrieveDataBefore()
     if request.method == 'POST':
-        LabelController(request.form).updateDatasetBefore()
-        return redirect(url_for('preprocessingDatasetBefore'))
+        response = PreprocessingController().process()
+        return response
     elif request.method == 'GET':
-        return render_template('/pages/preprocessing_dataset_before.html')
+        return render_template('/pages/preprocessing_dataset_before.html', jumlahDataset=len(jumlahDataset))
 
 @app.errorhandler(401)
 def unauthorized(error):
