@@ -121,10 +121,9 @@ $('#table_labelling_before tbody').on('change', 'select[name="label_data"]', fun
 	});
 });
 
-
 $('#table_preprocessing_before').DataTable({
     "deferRender": true,
-    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan/",
+    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
     "columns": [
         {
             data: null, 
@@ -146,7 +145,6 @@ $('#table_preprocessing_before').DataTable({
         },
     ],
 })
-
 
 $('#Preprocessing_Dataset_Before').click(function() {
 
@@ -219,11 +217,10 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                         <div class="card">
                                             <div class="card-header">
                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                                                     Berhasil melakukan <em>preprocessing</em> data dan telah tersimpan dalam basis data
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>
-                                                <a class="btn btn-success" href="/pages/preprocessing"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
+                                                <a class="btn btn-success" href="/preprocessing/dataset-sebelum-tragedi-kanjuruhan"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
                                             </div>
 
                                             <div class="card-body">

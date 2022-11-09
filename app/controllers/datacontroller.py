@@ -23,7 +23,10 @@ class DataController:
             flash(f"File failed to import", "danger")
             return e
         
-    def retrieveBefore(self):
+    def retrieveDataBefore(self):
+        return DatasetBefore.query.all()
+    
+    def retrieveJSONBefore(self):
         dataset = DatasetBefore.query.all()
     
         headersData = ['id','created_at', 'username', 'raw_tweets', 'clean_tweets', 'label']
