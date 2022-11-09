@@ -14,7 +14,7 @@
 							class="pcoded-mtext">Kamus Kata</span></a>
 					<ul class="pcoded-submenu">
 						<li><a href="{{ url_for('slangwordsRoute') }}">Daftar Kata <em>Slang</em></a></li>
-						<li><a href="#">Daftar Kata <em>Stop</em></a></li>
+						<li><a href="{{ url_for('stopwordsRoute') }}">Daftar Kata <em>Stop</em></a></li>
 					</ul>
 				<li class="nav-item pcoded-hasmenu" style="cursor:pointer;">
 					<a class="nav-link"><span class="pcoded-micon"><i class="fa-solid fa-table-columns"></i></span><span
@@ -28,7 +28,7 @@
 					<a class="#" class="nav-link "><span class="pcoded-micon"><i
 								class="fa-solid fa-tags"></i></span><span class="pcoded-mtext">Pelabelan</span></a>
 					<ul class="pcoded-submenu">
-						<li><a href="#">Sebelum Tragedi Kanjuruhan</a></li>
+						<li><a href="{{ url_for('labellingDatasetBefore') }}">Sebelum Tragedi Kanjuruhan</a></li>
 						<li><a href="#">Sesudah Tragedi Kanjuruhan</a></li>
 					</ul>
 				</li>
