@@ -105,12 +105,11 @@
 
                                 <br />
                                 
-
                             </div>
                             <div class="modal-footer">
                                 <input type="hidden" name="totalSplit" value="{{ totalSplit }}" required readonly />
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                <button type="button" class="btn btn-primary" id="uji_Dataset">Uji</button>
+                                <button type="button" class="btn btn-primary" id="uji_Dataset_before">Uji</button>
                             </div>
                         </form>
                     </div>
@@ -126,4 +125,3 @@
 {% block javascripts %}
     <script src="{{ url_for('static', filename = 'assets/vendor/chart/chart.min.js') }}"></script>
 {% endblock %}
-

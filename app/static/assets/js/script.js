@@ -437,7 +437,7 @@ $('#Preprocessing_Dataset_Before').click(function() {
 });
 
 
-$('#uji_Dataset').click(function() {
+$('#uji_Dataset_before').click(function() {
 
 	var totalSplit = parseInt($('#totalSplit').html());
 	
@@ -445,7 +445,7 @@ $('#uji_Dataset').click(function() {
 		var content =	"";
 		
 		$.ajax({
-			url         : "/pages/pengujian/",
+			url         : "/pengujian/dataset-sebelum-tragedi-kanjuruhan",
 			data		: $('form').serialize(),
 			type        : "POST",
 			dataType	: "json",
@@ -506,7 +506,6 @@ $('#uji_Dataset').click(function() {
                                         <div class="card">
                                             <div class="card-header">
                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                                                     Berhasil melakukan pembagian dan pengujian data
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>

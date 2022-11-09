@@ -26,6 +26,9 @@ class DataController:
     def retrieveDataBefore(self):
         return DatasetBefore.query.all()
     
+    def retrieveCountDataBefore(self):
+        return DatasetBefore.query.count()
+    
     def retrieveJSONBefore(self):
         dataset = DatasetBefore.query.all()
     

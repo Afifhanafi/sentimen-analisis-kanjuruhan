@@ -7,6 +7,7 @@ from app.controllers.stopwordcontroller import StopwordController
 from app.controllers.datacontroller import DataController
 from app.controllers.labelcontroller import LabelController
 from app.controllers.preprocessingcontroller import PreprocessingController
+from app.controllers.testingcontroller import TestingController
 
 @app.route('/beranda', methods=['GET'])
 @app.route('/', methods=['GET'])
@@ -130,12 +131,22 @@ def labellingDatasetBefore():
 
 @app.route('/preprocessing/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 def preprocessingDatasetBefore():
-    jumlahDataset = DataController().retrieveDataBefore()
     if request.method == 'POST':
         response = PreprocessingController().process()
         return response
     elif request.method == 'GET':
+        jumlahDataset = DataController().retrieveDataBefore()
         return render_template('/pages/preprocessing_dataset_before.html', jumlahDataset=len(jumlahDataset))
+
+@app.route('/pengujian/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
+def testingDatasetBefore():
+    if request.method == 'POST':
+        response = TestingController().processTest(request.form)
+        return response
+    elif request.method == 'GET':
+        totalSplit = DataController().retrieveCountDataBefore()
+        return render_template('/pages/testing_dataset_before.html', totalSplit = int(totalSplit))
 
 @app.errorhandler(401)
 def unauthorized(error):
