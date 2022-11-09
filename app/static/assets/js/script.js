@@ -1,8 +1,6 @@
 $('#table_slangwords').DataTable()
 
-
 $('#table_stopwords').DataTable()
-
 
 $('#table_dataset_before').DataTable({
     "deferRender": true,
@@ -54,10 +52,79 @@ $('#table_dataset_after').DataTable({
     ],
 })
 
+var table_labelling = $('#table_labelling_before').DataTable({
+	"deferRender": true,
+	"ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
+	"columns": [
+		{
+			data: null,
+            className: 'text-center',
+			"render": function (data, type, full, meta) {
+				return  meta.row + 1;
+			}
+		},
+        {
+			data: 'created_at',
+            className: 'text-center'
+	 	},
+        { 
+            data: 'username',
+            className: 'text-center'
+        },
+		{
+			data: 'raw_tweets',
+			className: 'text-left'
+	 	},
+         { 
+            data: null,
+            className: 'text-center',
+			"render": function (data, type, full, meta) {
+                if (data.label == "POSITIF"){
+                    return `
+                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-success">
+                            <option value="` + data.label + `" selected>` + data.label + `</option>
+                            <option value="NEGATIF">NEGATIF</option>
+                        </select>
+                    `;
+                }else{
+                    return `
+                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-danger">
+                            <option value="` + data.label + `" selected>`+data.label+`</option>
+                            <option value="POSITIF">POSITIF</option>
+                        </select>
+                    `;
+                }
+			},
+        }
+	],
+});
 
-$('#table_preprocessing').DataTable({
+
+$('#table_labelling_before tbody').on('change', 'select[name="label_data"]', function () {
+	var data = table_labelling.row($(this).parents('tr')).data();
+	id = data['id'];
+	value = $(this).find(":selected").text();
+
+    if (value == "POSITIF") {
+        $('#opsi_label'+id).removeClass('btn btn-danger')
+        $('#opsi_label'+id).addClass('btn btn-success')
+    }else{
+        $('#opsi_label'+id).removeClass('btn btn-success')
+        $('#opsi_label'+id).addClass('btn btn-danger')
+    }
+	
+	$.ajax({
+		url         : "/pelabelan/dataset-sebelum-tragedi-kanjuruhan",
+		data		: {'id': id, 'value': value},
+		type        : "POST",
+		dataType	: "json",
+	});
+});
+
+
+$('#table_preprocessing_before').DataTable({
     "deferRender": true,
-    "ajax": "/list_dataset/",
+    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan/",
     "columns": [
         {
             data: null, 
@@ -81,7 +148,7 @@ $('#table_preprocessing').DataTable({
 })
 
 
-$('#Preprocessing_Dataset').click(function() {
+$('#Preprocessing_Dataset_Before').click(function() {
 
 	var form_dataArray = $('form').serializeArray();
 	var jumlah_dataset = parseInt($('#jumlah_dataset').html());
@@ -91,7 +158,7 @@ $('#Preprocessing_Dataset').click(function() {
 		var content =	"";
 		
 		$.ajax({
-			url         : "/pages/preprocessing/",
+			url         : "/preprocessing/dataset-sebelum-tragedi-kanjuruhan",
 			data		: $('form').serialize(),
 			type        : "POST",
 			dataType	: "json",
@@ -370,82 +437,6 @@ $('#Preprocessing_Dataset').click(function() {
 	else {
 		console.log("error")
 	}
-});
-
-
-var table_labelling = $('#table_labelling').DataTable({
-	"deferRender": true,
-	"ajax": "/list_dataset/",
-	"columns": [
-		{
-			data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-				return  meta.row + 1;
-			}
-		},
-        {
-			data: 'created_at',
-            className: 'text-center'
-	 	},
-        { 
-            data: 'username',
-            className: 'text-center'
-        },
-		{
-			data: 'raw_tweets',
-			className: 'text-left'
-	 	},
-         { 
-            data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-                if (data.label == "Positif"){
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-success">
-                            <option value="`+ data.label +`" selected>`+data.label+`</option>
-                            <option value="Negatif">Negatif</option>
-                        </select>
-                    `;
-                }else{
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-danger">
-                            <option value="`+ data.label +`" selected>`+data.label+`</option>
-                            <option value="Positif">Positif</option>
-                        </select>
-                    `;
-                }
-			},
-        }
-	],
-});
-
-
-$('#table_labelling tbody').on('change', 'select[name="label_data"]', function () {
-	var data = table_labelling.row($(this).parents('tr')).data();
-	id = data['id'];
-	value = $(this).find(":selected").text();
-
-    if (value == "Positif") {
-        $('#opsi_label'+id).removeClass('btn btn-danger')
-        $('#opsi_label'+id).addClass('btn btn-success')
-    }else{
-        $('#opsi_label'+id).removeClass('btn btn-success')
-        $('#opsi_label'+id).addClass('btn btn-danger')
-    }
-	
-	$.ajax({
-		url         : "/pages/pelabelan/",
-		data		: {'id': id, 'value': value},
-		type        : "POST",
-		dataType	: "json",
-		// success     : function(response) {
-		// 	console.log(response);
-		// },
-		// error     : function(x) {
-		// 	console.log(x.responseText);
-		// }
-	});
 });
 
 

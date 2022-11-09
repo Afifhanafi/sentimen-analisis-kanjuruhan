@@ -68,12 +68,11 @@
                                         {% if stopwords_data %}
                                             {% for row in stopwords_data %}
                                                 <tr>
-                                                    <td class="text-center" width="5%">{{ row.id }}</td>
+                                                    <td class="text-center" width="5%">{{ loop.index }}</td>
                                                     <td class="text-center">{{ row.stopwords }}</td>
                                                     <td class="text-center" width="30%">
                                                         <a class="btn btn-warning btn-xs" data-bs-toggle="modal" href="#ubahdataModaToggle{{ row.id }}" role="button">Ubah</em></a>
                                                         <a class="btn btn-danger btn-xs" data-bs-toggle="modal" href="#hapusdataModalToggle{{ row.id }}" role="button">Hapus</em></a>
-                                                        <!-- <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a> -->
                                                     </td>
                                                 </tr>
 
@@ -86,7 +85,7 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
 
-                                                            <form action="{{ url_for('stopwords_ubah') }}" method="POST">
+                                                            <form action="{{ url_for('stopwordUpdateRoute') }}" method="POST">
                                                                 <input type="hidden" name="id" value="{{row.id}}" />
                                                                 <div class="modal-body text-muted">
                                                                     <div class="form-group px-4 text-left">
@@ -114,8 +113,8 @@
                                                                 <h5 class="modal-title" id="hapusDataStopwords" style="font-style: normal;">Hapus Data</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-
-                                                            <form action="{{ url_for('stopwords_hapus') }}" method="POST">
+                                                            
+                                                            <form action="{{ url_for('stopwordDeleteRoute') }}" method="POST">
                                                                 <input type="hidden" name="id" value="{{row.id}}" />
                                                                 <div class="modal-body text-muted">
                                                                     <div class="form-group px-4 text-left">
@@ -157,7 +156,7 @@
                        <form method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat Excel (.xls atau .xlsx)</label>
-                                <input class="form-control" name="fileExcel" type="file" id="formFile">
+                                <input class="form-control" name="fileCSV" type="file" id="formFile">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -178,7 +177,7 @@
                             <h5 class="modal-title" id="tambahDataStopwords" style="font-style: normal;">Tambah Data</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="{{ url_for('stopwords_tambah') }}" method="POST">
+                        <form action="" method="POST">
 							<div class="modal-body text-muted">
 								<div class="form-group px-4 text-left">
 									<label><em>Stopwords</em></label>
