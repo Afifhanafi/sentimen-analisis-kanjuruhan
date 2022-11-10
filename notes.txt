@@ -63,4 +63,4 @@ flask db migrate -m 'Initial Migrate'
 
 flask db upgrade
 
-feather icon-users
+feather icon-users, fa-solid fa-screwdriver-wrench

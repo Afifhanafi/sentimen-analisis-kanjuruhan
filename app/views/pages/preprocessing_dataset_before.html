@@ -1,86 +1,92 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Dashboard {% endblock %} 
+{% block title %} Dashboard {% endblock %}
 
 {% block content %}
 
-    <!-- [ Main Content ] start -->
-    <div class="pcoded-main-container">
-        <div class="pcoded-content" id="contentPreprocessingData">
-            <!-- [ breadcrumb ] start -->
-			<div class="page-header">
-				<div class="page-block">
-					<div class="row align-items-center">
-						<div class="col-md-12">
-							<div class="page-header-title">
-								<h5 class="m-b-10"><em>Preprocessing</em></h5>
-							</div>
-							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-								<li class="breadcrumb-item"><em>Pages</em></li>
-								<li class="breadcrumb-item"><em>Preprocessing</em></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- [ breadcrumb ] end -->
-
-            <div class="row">
-
-                <!-- [ Dataset Table ] start -->
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="btn btn-primary" data-bs-toggle="modal" href="#preprocessingtModalToggle" role="button"><i class="fa-solid fa-screwdriver-wrench" style="margin-left:-0.3em;"></i> &nbsp;<em>Preprocessing</em> Data</a>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content" id="contentPreprocessingData">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Prapemrosesan</h5>
                         </div>
-
-                        <div class="card-body table-border-style" style="margin-top:-1em;">
-                            <div class="table-responsive">
-                                <table class="table table-striped w-100" id="table_preprocessing_before" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" width="5%">No.</th>
-                                            <th class="text-center" width="15%"><em>Created_at</em></th>
-                                            <th class="text-center" width="15%"><em>Username</em></th>
-                                            <th class="text-center" width="65%"><em>Raw Tweets</em></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- [ Dataset Table ] end -->
-
-            </div>
-            <!-- [ Table Content ] end -->
-
-            <!-- Modal Import File -->
-            <div class="modal fade" id="preprocessingtModalToggle" aria-hidden="true" aria-labelledby="preprocessingData" tabindex="-1" style="display: none;">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="preprocessingData"><em>Preprocessing Data</em></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                       <form method="POST">
-                            <div class="modal-body">
-                                <p style="font-style: normal;">Sejumlah <strong id="jumlah_dataset">{{ jumlahDataset }}</strong> dataset akan dilakukan <em>Preprocessing</em> Data</p>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="hidden" name="proses" value="preprocessing" required readonly />
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                <button type="button" class="btn btn-primary" id="Preprocessing_Dataset_Before">Proses</button>
-                            </div>
-                        </form>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
+                            <li class="breadcrumb-item">Pages</li>
+                            <li class="breadcrumb-item">Prapemrosesan</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Modal Import File -->
-            
         </div>
+        <!-- [ breadcrumb ] end -->
+
+        <div class="row">
+
+            <!-- [ Dataset Table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn btn-success" data-bs-toggle="modal" href="#preprocessingtModalToggle"
+                            role="button"><i class="fa-solid fa-gear" style="margin-left:-0.3em;"></i>
+                            &nbsp;Prapemrosesan Data</a>
+                    </div>
+
+                    <div class="card-body table-border-style" style="margin-top:-1em;">
+                        <div class="table-responsive">
+                            <table class="table table-striped w-100" id="table_preprocessing_before" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" width="5%">No.</th>
+                                        <th class="text-center" width="15%"><em>Created_at</em></th>
+                                        <th class="text-center" width="15%"><em>Username</em></th>
+                                        <th class="text-center" width="65%"><em>Raw Tweets</em></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- [ Dataset Table ] end -->
+
+        </div>
+        <!-- [ Table Content ] end -->
+
+        <!-- Modal Import File -->
+        <div class="modal fade" id="preprocessingtModalToggle" aria-hidden="true" aria-labelledby="preprocessingData"
+            tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="preprocessingData"><em>Preprocessing Data</em></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST">
+                        <div class="modal-body">
+                            <p style="font-style: normal;">Sejumlah <strong
+                                    id="jumlah_dataset">{{ jumlahDataset }}</strong> dataset akan dilakukan
+                                <em>Preprocessing</em> Data</p>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="proses" value="preprocessing" required readonly />
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-primary"
+                                id="Preprocessing_Dataset_Before">Proses</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Import File -->
+
     </div>
-    <!-- [ Main Content ] end -->
+</div>
+<!-- [ Main Content ] end -->
 {% endblock content %}
