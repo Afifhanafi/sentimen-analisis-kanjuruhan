@@ -1,203 +1,221 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Dashboard {% endblock %} 
+{% block title %} Dashboard {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
-    <!-- [ Main Content ] start -->
-    <div class="pcoded-main-container">
-        <div class="pcoded-content">
-            <!-- [ breadcrumb ] start -->
-			<div class="page-header">
-				<div class="page-block">
-					<div class="row align-items-center">
-						<div class="col-md-12">
-							<div class="page-header-title">
-								<h5 class="m-b-10">Daftar <em>Stopwords</em></h5>
-							</div>
-							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-								<li class="breadcrumb-item"><em>Pages</em></li>
-                                <li class="breadcrumb-item">Kamus</li>
-								<li class="breadcrumb-item">Daftar <em>Stopwords</em></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- [ breadcrumb ] end -->
-
-
-            <!-- [ Table Content ] start -->
-            <div class="row">
-
-                <!-- [ Dataset Table ] start -->
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
-                            {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                    {% for category, message in messages %}
-                                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                                            {{ message }}
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endwith %}
-
-                            <a class="btn btn-primary" data-bs-toggle="modal" href="#importModalToggle" role="button"><i class="fa-solid fa-file-import" style="margin-left:-0.3em;"></i> &nbsp;Impor data</a>
-                            &nbsp;
-                            <a class="btn btn-info" data-bs-toggle="modal" href="#tambahdataModaToggle" role="button"><i class="fa-solid fa-circle-plus" style="margin-left:-0.3em;"></i> &nbsp;Tambah data</a>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Daftar Kata <em>Stop</em></h5>
                         </div>
-
-                        <div class="card-body table-border-style" style="margin-top:-1em;">
-                            <div class="table-responsive">
-                                <table class="table table-striped w-100" id="table_stopwords" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" width="10%">No.</th>
-                                            <th class="text-center"><em>Stopwords</em></th>
-                                            <th class="text-center" width="25%">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% if stopwords_data %}
-                                            {% for row in stopwords_data %}
-                                                <tr>
-                                                    <td class="text-center" width="5%">{{ loop.index }}</td>
-                                                    <td class="text-center">{{ row.stopwords }}</td>
-                                                    <td class="text-center" width="30%">
-                                                        <a class="btn btn-warning btn-xs" data-bs-toggle="modal" href="#ubahdataModaToggle{{ row.id }}" role="button">Ubah</em></a>
-                                                        <a class="btn btn-danger btn-xs" data-bs-toggle="modal" href="#hapusdataModalToggle{{ row.id }}" role="button">Hapus</em></a>
-                                                    </td>
-                                                </tr>
-
-                                                <!-- Modal Ubah Data -->
-                                                <div class="modal fade" id="ubahdataModaToggle{{ row.id }}" aria-hidden="true" aria-labelledby="ubahDataSlang" tabindex="-1" style="display: none;">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="ubahDataSlang" style="font-style: normal;">Ubah Data</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-
-                                                            <form action="{{ url_for('stopwordUpdateRoute') }}" method="POST">
-                                                                <input type="hidden" name="id" value="{{row.id}}" />
-                                                                <div class="modal-body text-muted">
-                                                                    <div class="form-group px-4 text-left">
-                                                                        <label><em>Stopwords</em></label>
-                                                                        <input type="text" name="stopwords" value="{{ row.stopwords }}" class="form-control" required />
-                                                                    </div>
-                                                                    <br>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                                    <button type="submit" class="btn btn-warning">Ubah</button>
-                                                                </div>
-                                                            </form>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Ubah Data -->
-
-                                                <!-- Modal Hapus Data -->
-                                                <div class="modal fade" id="hapusdataModalToggle{{ row.id }}" aria-hidden="true" aria-labelledby="hapusDataStopwords" tabindex="-1" style="display: none;">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="hapusDataStopwords" style="font-style: normal;">Hapus Data</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            
-                                                            <form action="{{ url_for('stopwordDeleteRoute') }}" method="POST">
-                                                                <input type="hidden" name="id" value="{{row.id}}" />
-                                                                <div class="modal-body text-muted">
-                                                                    <div class="form-group px-4 text-left">
-                                                                        <label>Apakah anda yakin ingin menghapus kata <strong>{{ row.stopwords }}</strong></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                                                </div>
-                                                            </form>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal Hapus Data -->
-                                            {% endfor %}
-                                        {% endif %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- [ Dataset Table ] end -->
-
-            </div>
-            <!-- [ Table Content ] end -->
-
-            <!-- Modal Import File -->
-            <div class="modal fade" id="importModalToggle" aria-hidden="true" aria-labelledby="importTableExcel" tabindex="-1" style="display: none;">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="importTableExcel" style="font-style: normal;">Impor Data</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                       <form method="POST" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat Excel (.xls atau .xlsx)</label>
-                                <input class="form-control" name="fileCSV" type="file" id="formFile">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                <button type="submit" class="btn btn-primary">Impor</button>
-                            </div>
-                        </form>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
+                            <li class="breadcrumb-item">Pages</li>
+                            <li class="breadcrumb-item">Kamus Kata</li>
+                            <li class="breadcrumb-item">Daftar Kata <em>Stop</em></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Modal Import File -->
-
-
-            <!-- Modal Tambah Data -->
-            <div class="modal fade" id="tambahdataModaToggle" aria-hidden="true" aria-labelledby="tambahDataStopwords" tabindex="-1" style="display: none;">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="tambahDataStopwords" style="font-style: normal;">Tambah Data</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="" method="POST">
-							<div class="modal-body text-muted">
-								<div class="form-group px-4 text-left">
-									<label><em>Stopwords</em></label>
-									<input type="text" name="stopwords" class="form-control" required />
-								</div>
-                                <br>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-								<button type="submit" class="btn btn-primary">Tambah</button>
-							</div>
-						</form>
-
-                       
-                    </div>
-                </div>
-            </div>
-            <!-- Modal Tambah Data -->
-            
         </div>
+        <!-- [ breadcrumb ] end -->
+
+
+        <!-- [ Table Content ] start -->
+        <div class="row">
+
+            <!-- [ Dataset Table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        <a class="btn btn-info" data-bs-toggle="modal" href="#importModalToggle" role="button"><i
+                                class="fa-solid fa-cloud-arrow-up" style="margin-left:-0.3em;"></i> &nbsp;Impor data</a>
+                        &nbsp;
+                        <a class="btn btn-success" data-bs-toggle="modal" href="#tambahdataModaToggle" role="button"><i
+                                class="fa-solid fa-circle-plus" style="margin-left:-0.3em;"></i> &nbsp;Tambah data</a>
+                    </div>
+
+                    <div class="card-body table-border-style" style="margin-top:-1em;">
+                        <div class="table-responsive">
+                            <table class="table table-striped w-100" id="table_stopwords" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" width="10%">No.</th>
+                                        <th class="text-center">Kata Stop</th>
+                                        <th class="text-center" width="25%">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if stopwords_data %}
+                                    {% for row in stopwords_data %}
+                                    <tr>
+                                        <td class="text-center" width="5%">{{ loop.index }}</td>
+                                        <td class="text-center">{{ row.stopwords }}</td>
+                                        <td class="text-center" width="30%">
+                                            <a class="btn btn-primary btn-xs" data-bs-toggle="modal"
+                                                href="#ubahdataModaToggle{{ row.id }}" role="button">Ubah</em></a>
+                                            <a class="btn btn-warning btn-xs" data-bs-toggle="modal"
+                                                href="#hapusdataModalToggle{{ row.id }}" role="button">Hapus</em></a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Modal Ubah Data -->
+                                    <div class="modal fade" id="ubahdataModaToggle{{ row.id }}" aria-hidden="true"
+                                        aria-labelledby="ubahDataSlang" tabindex="-1" style="display: none;">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ubahDataSlang"
+                                                        style="font-style: normal;">Ubah Data</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form action="{{ url_for('stopwordUpdateRoute') }}" method="POST">
+                                                    <input type="hidden" name="id" value="{{row.id}}" />
+                                                    <div class="modal-body text-muted">
+                                                        <div class="form-group px-4 text-left">
+                                                            <label><em>Stopwords</em></label>
+                                                            <input type="text" name="stopwords"
+                                                                value="{{ row.stopwords }}" class="form-control"
+                                                                required />
+                                                        </div>
+                                                        <br>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-warning">Ubah</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Ubah Data -->
+
+                                    <!-- Modal Hapus Data -->
+                                    <div class="modal fade" id="hapusdataModalToggle{{ row.id }}" aria-hidden="true"
+                                        aria-labelledby="hapusDataStopwords" tabindex="-1" style="display: none;">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="hapusDataStopwords"
+                                                        style="font-style: normal;">Hapus Data</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form action="{{ url_for('stopwordDeleteRoute') }}" method="POST">
+                                                    <input type="hidden" name="id" value="{{row.id}}" />
+                                                    <div class="modal-body text-muted">
+                                                        <div class="form-group px-4 text-left">
+                                                            <label>Apakah anda yakin ingin menghapus kata
+                                                                <strong>{{ row.stopwords }}</strong></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Hapus Data -->
+                                    {% endfor %}
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- [ Dataset Table ] end -->
+
+        </div>
+        <!-- [ Table Content ] end -->
+
+        <!-- Modal Import File -->
+        <div class="modal fade" id="importModalToggle" aria-hidden="true" aria-labelledby="importTableExcel"
+            tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="importTableExcel" style="font-style: normal;">Impor Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat
+                                Excel (.xls atau .xlsx)</label>
+                            <input class="form-control" name="fileCSV" type="file" id="formFile">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Impor</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Import File -->
+
+
+        <!-- Modal Tambah Data -->
+        <div class="modal fade" id="tambahdataModaToggle" aria-hidden="true" aria-labelledby="tambahDataStopwords"
+            tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tambahDataStopwords" style="font-style: normal;">Tambah Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body text-muted">
+                            <div class="form-group px-4 text-left">
+                                <label><em>Stopwords</em></label>
+                                <input type="text" name="stopwords" class="form-control" required />
+                            </div>
+                            <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal Tambah Data -->
+
     </div>
-    <!-- [ Main Content ] end -->
+</div>
+<!-- [ Main Content ] end -->
 {% endblock content %}
