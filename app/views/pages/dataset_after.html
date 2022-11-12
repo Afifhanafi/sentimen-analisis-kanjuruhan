@@ -19,9 +19,10 @@
 								<h5 class="m-b-10">Dataset</h5>
 							</div>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-								<li class="breadcrumb-item"><em>Pages</em></li>
+								<li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
+								<li class="breadcrumb-item">Pages</li>
 								<li class="breadcrumb-item">Dataset</li>
+								<li class="breadcrumb-item">Sesudah Tragedi Kanjuruhan</li>
 							</ul>
 						</div>
 					</div>
@@ -47,7 +48,8 @@
                                     {% endfor %}
                                 {% endif %}
                             {% endwith %}
-                            <a class="btn btn-primary" data-bs-toggle="modal" href="#importModalToggle" role="button"><i class="fa-solid fa-file-import" style="margin-left:-0.3em;"></i> &nbsp;Impor data</a>
+                            <a class="btn btn-primary" data-bs-toggle="modal" href="#importModalToggle" role="button">
+                                <i class="fa-solid fa-file-import" style="margin-left:-0.3em;"></i> &nbsp;Impor data</a>
                         </div>
 
                         <div class="card-body table-border-style" style="margin-top:-1em;">
@@ -73,14 +75,15 @@
             <!-- [ Table Content ] end -->
 
             <!-- Modal Import File -->
-            <div class="modal fade" id="importModalToggle" aria-hidden="true" aria-labelledby="importTableExcel" tabindex="-1" style="display: none;">
+            <div class="modal fade" id="importModalToggle" aria-hidden="true" aria-labelledby="importTableExcel" 
+            tabindex="-1" style="display: none;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="importTableExcel" style="font-style: normal;">Impor Data</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                       <form method="POST" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <label for="formFile" class="form-label" style="font-style: normal;">Berkas harus berformat CSV (.csv)</label>
                                 <input class="form-control" name="fileCSV" type="file" id="formFile">

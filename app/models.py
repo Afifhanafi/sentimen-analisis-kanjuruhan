@@ -8,7 +8,7 @@ class DatasetBefore(db.Model, UserMixin):
     raw_tweets = db.Column(db.Text)
     clean_tweets = db.Column(db.Text)
     label = db.Column(db.String(10))
-     
+    
     def __repr__(self):
         return '<Dataset Before {}>'.format(self.raw_tweets)
 
@@ -19,7 +19,7 @@ class DatasetAfter(db.Model, UserMixin):
     raw_tweets = db.Column(db.Text)
     clean_tweets = db.Column(db.Text)
     label = db.Column(db.String(10))
-     
+    
     def __repr__(self):
         return '<Dataset After {}>'.format(self.raw_tweets)
     

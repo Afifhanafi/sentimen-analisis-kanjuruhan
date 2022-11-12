@@ -106,6 +106,7 @@ def stopwordDeleteRoute():
     else:
         return redirect(url_for('stopwordsRoute'))
 
+#Dataset Sebelum Tragedi Kanjuruhan
 @app.route('/api/dataset-sebelum-tragedi-kanjuruhan', methods=["GET"])
 def apiDatasetBeforeKanjuruhan():
     dataset = DataController().retrieveJSONBefore()
@@ -120,6 +121,22 @@ def DatasetBeforeKanjuruhan():
         DataController().importDatasetBefore(request.files["fileCSV"])
         return redirect(url_for('DatasetBeforeKanjuruhan'))
 
+#Dataset Sesudah Kejadian Kanjuruhan
+@app.route('/api/dataset-sesudah-tragedi-kanjuruhan', methods=["GET"])
+def apiDatasetAfterKanjuruhan():
+    dataset = DataController().retrieveJSONAfter()
+    return dataset
+
+@app.route('/dataset/dataset-sesudah-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
+def DatasetAfterKanjuruhan():
+    if request.method == "GET":
+        return render_template("/pages/dataset_after.html")
+    elif request.method == "POST" and request.files:
+        DataController().importDatasetAfter(request.files["fileCSV"])
+        return redirect(url_for('DatasetAfterKanjuruhan'))
+
+#Pelabelan Sebelum Sebelum Tragedi Kanjuruhan
 @app.route('/pelabelan/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 @login_required
 def labellingDatasetBefore():
@@ -129,6 +146,7 @@ def labellingDatasetBefore():
     elif request.method == 'GET':
         return render_template('/pages/label_dataset_before.html')
 
+#Prapemrosesan Sebelum Tragedi Kanjuruhan
 @app.route('/preprocessing/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 def preprocessingDatasetBefore():
     if request.method == 'POST':
@@ -138,6 +156,7 @@ def preprocessingDatasetBefore():
         jumlahDataset = DataController().retrieveDataBefore()
         return render_template('/pages/preprocessing_dataset_before.html', jumlahDataset=len(jumlahDataset))
 
+#Pengujian Sebelum Tragedi Kanjuruhan
 @app.route('/pengujian/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 @login_required
 def testingDatasetBefore():
