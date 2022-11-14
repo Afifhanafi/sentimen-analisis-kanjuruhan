@@ -31,7 +31,7 @@
 							class="pcoded-mtext">Pelabelan</span></a>
 					<ul class="pcoded-submenu">
 						<li><a href="{{ url_for('labellingDatasetBefore') }}">Sebelum Tragedi Kanjuruhan</a></li>
-						<li><a href="#">Sesudah Tragedi Kanjuruhan</a></li>
+						<li><a href="{{ url_for('labellingDatasetAfter') }}">Sesudah Tragedi Kanjuruhan</a></li>
 					</ul>
 				</li>
 				<li class="nav-item pcoded-hasmenu" style="cursor:pointer;">
@@ -40,7 +40,7 @@
 							class="pcoded-mtext">Prapemrosesan</span></a>
 					<ul class="pcoded-submenu">
 						<li><a href="{{ url_for('preprocessingDatasetBefore') }}">Sebelum Tragedi Kanjuruhan</a></li>
-						<li><a href="#">Sesudah Tragedi Kanjuruhan</a></li>
+						<li><a href="{{ url_for('preprocessingDatasetAfter') }}">Sesudah Tragedi Kanjuruhan</a></li>
 					</ul>
 				</li>
 				<li class="nav-item pcoded-hasmenu" style="cursor:pointer;">
@@ -48,7 +48,7 @@
 								class="fa-solid fa-wrench"></i></span><span class="pcoded-mtext">Pengujian</span></a>
 					<ul class="pcoded-submenu">
 						<li><a href="{{ url_for('testingDatasetBefore') }}">Sebelum Tragedi Kanjuruhan</a></li>
-						<li><a href="#">Sesudah Tragedi Kanjuruhan</a></li>
+						<li><a href="{{ url_for('testingDatasetAfter') }}">Sesudah Tragedi Kanjuruhan</a></li>
 					</ul>
 				</li>
 			</ul>

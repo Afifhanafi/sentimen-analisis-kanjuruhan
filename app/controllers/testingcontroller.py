@@ -2,6 +2,7 @@ from app import db
 from flask import flash, jsonify, json
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
+from app.models import DatasetBefore, DatasetAfter
 from app.controllers.datacontroller import DataController
 from app.controllers.tfidfcontroller import TfidfVectorizer
 from app.controllers.mnbcontroller import MultiNB
@@ -9,8 +10,8 @@ import pandas as pd
 import re
 
 class TestingController:
-    def __init__(self):
-        self.data_clean = DataController().retrieveDataBefore()
+    def __init__(self, model):
+        self.data_clean = DataController().retrieveData(model)
         self.data_split = {'created_at': [], 'raw_tweets': [],'clean_tweets': [], 'label': []}
     
     def processTest(self, *args):

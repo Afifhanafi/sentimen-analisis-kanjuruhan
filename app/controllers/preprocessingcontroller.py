@@ -21,8 +21,8 @@ class PreprocessingController:
         self.stopwords_headers = ['stopwords']
         self.raw_headers = ['id', 'created_at', 'username', 'raw_tweets', 'clean_tweets']
     
-    def process(self):
-        data = DataController().retrieveDataBefore()
+    def process(self, model):
+        data = DataController().retrieveData(model)
         
         data_raw=[]
         for result in data:
@@ -99,7 +99,7 @@ class PreprocessingController:
             print(index+1)
         
         for i in range(0, len(self.data_akhir)+1):
-            dataset = DatasetBefore.query.filter_by(id=i).update({DatasetBefore.clean_tweets : self.data_akhir[i-1]})
+            dataset = model.query.filter_by(id=i).update({model.clean_tweets : self.data_akhir[i-1]})
             
             db.session.commit()
                 

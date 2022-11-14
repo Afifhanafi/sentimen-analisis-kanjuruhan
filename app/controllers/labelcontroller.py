@@ -9,8 +9,8 @@ class LabelController:
             self.id = args[0]["id"]
             self.value = args[0]["value"]
     
-    def updateDatasetBefore(self):
-        update_label = DatasetBefore().query.get(self.id)
+    def updateDataset(self, model):
+        update_label = model().query.get(self.id)
         update_label.label = self.value
         
         db.session.commit()
