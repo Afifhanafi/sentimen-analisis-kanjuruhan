@@ -52,7 +52,7 @@ $('#table_dataset_after').DataTable({
     ],
 })
 
-var table_labelling = $('#table_labelling_before').DataTable({
+var table_labelling_before = $('#table_labelling_before').DataTable({
 	"deferRender": true,
 	"ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
 	"columns": [
@@ -99,9 +99,8 @@ var table_labelling = $('#table_labelling_before').DataTable({
 	],
 });
 
-
 $('#table_labelling_before tbody').on('change', 'select[name="label_data"]', function () {
-	var data = table_labelling.row($(this).parents('tr')).data();
+	var data = table_labelling_before.row($(this).parents('tr')).data();
 	id = data['id'];
 	value = $(this).find(":selected").text();
 
@@ -115,6 +114,74 @@ $('#table_labelling_before tbody').on('change', 'select[name="label_data"]', fun
 	
 	$.ajax({
 		url         : "/pelabelan/dataset-sebelum-tragedi-kanjuruhan",
+		data		: {'id': id, 'value': value},
+		type        : "POST",
+		dataType	: "json",
+	});
+});
+
+var table_labelling_after = $('#table_labelling_after').DataTable({
+	"deferRender": true,
+	"ajax": "/api/dataset-sesudah-tragedi-kanjuruhan",
+	"columns": [
+		{
+			data: null,
+            className: 'text-center',
+			"render": function (data, type, full, meta) {
+				return  meta.row + 1;
+			}
+		},
+        {
+			data: 'created_at',
+            className: 'text-center'
+	 	},
+        { 
+            data: 'username',
+            className: 'text-center'
+        },
+		{
+			data: 'raw_tweets',
+			className: 'text-left'
+	 	},
+         { 
+            data: null,
+            className: 'text-center',
+			"render": function (data, type, full, meta) {
+                if (data.label == "POSITIF"){
+                    return `
+                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-success">
+                            <option value="` + data.label + `" selected>` + data.label + `</option>
+                            <option value="NEGATIF">NEGATIF</option>
+                        </select>
+                    `;
+                }else{
+                    return `
+                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-danger">
+                            <option value="` + data.label + `" selected>`+data.label+`</option>
+                            <option value="POSITIF">POSITIF</option>
+                        </select>
+                    `;
+                }
+			},
+        }
+	],
+});
+
+$('#table_labelling_after tbody').on('change', 'select[name="label_data"]', function () {
+	var data = table_labelling_after.row($(this).parents('tr')).data();
+	id = data['id'];
+	value = $(this).find(":selected").text();
+
+    if (value == "POSITIF") {
+        $('#opsi_label'+id).removeClass('btn btn-danger')
+        $('#opsi_label'+id).addClass('btn btn-success')
+    }else{
+        $('#opsi_label'+id).removeClass('btn btn-success')
+        $('#opsi_label'+id).addClass('btn btn-danger')
+    }
+	
+	$.ajax({
+		url         : "/pelabelan/dataset-sesudah-tragedi-kanjuruhan",
 		data		: {'id': id, 'value': value},
 		type        : "POST",
 		dataType	: "json",
@@ -435,7 +502,6 @@ $('#Preprocessing_Dataset_Before').click(function() {
 		console.log("error")
 	}
 });
-
 
 $('#uji_Dataset_before').click(function() {
 

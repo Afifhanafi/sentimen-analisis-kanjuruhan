@@ -1,0 +1,67 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+			<div class="page-header">
+				<div class="page-block">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="page-header-title">
+								<h5 class="m-b-10">Pelabelan</h5>
+							</div>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
+								<li class="breadcrumb-item">Pages</li>
+								<li class="breadcrumb-item">Pelabelan</li>
+                                <li class="breadcrumb-item">Sesudah Tragedi Kanjuruhan</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- [ breadcrumb ] end -->
+
+            
+            <!-- [ Table Content ] start -->
+            <div class="row">
+
+                <!-- [ Dataset Table ] start -->
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body table-border-style" style="margin-top:-1em;">
+                            <div class="table-responsive">
+                                <table class="table table-striped w-100" id="table_labelling_after" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="5%">No.</th>
+                                            <th class="text-center" width="15%"><em>Created_at</em></th>
+                                            <th class="text-center" width="15%"><em>Username</em></th>
+                                            <th class="text-center" width="55%"><em>Raw Tweets</em></th>
+                                            <th class="text-center" width="10%">Label</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ Dataset Table ] end -->
+
+            </div>
+            <!-- [ Table Content ] end -->
+            
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+{% endblock content %}

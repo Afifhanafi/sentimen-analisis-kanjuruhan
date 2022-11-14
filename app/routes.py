@@ -1,6 +1,7 @@
 from app import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, login_user, logout_user, current_user
+from app.models import DatasetBefore, DatasetAfter
 from app.controllers.authcontroller import AuthController
 from app.controllers.slangwordcontroller import SlangwordController
 from app.controllers.stopwordcontroller import StopwordController
@@ -106,10 +107,10 @@ def stopwordDeleteRoute():
     else:
         return redirect(url_for('stopwordsRoute'))
 
-#Dataset Sebelum Tragedi Kanjuruhan
+# Dataset Sebelum Tragedi Kanjuruhan
 @app.route('/api/dataset-sebelum-tragedi-kanjuruhan', methods=["GET"])
 def apiDatasetBeforeKanjuruhan():
-    dataset = DataController().retrieveJSONBefore()
+    dataset = DataController().retrieveJSON(DatasetBefore)
     return dataset
 
 @app.route('/dataset/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
@@ -118,13 +119,13 @@ def DatasetBeforeKanjuruhan():
     if request.method == "GET":
         return render_template("/pages/dataset_before.html")
     elif request.method == "POST" and request.files:
-        DataController().importDatasetBefore(request.files["fileCSV"])
+        DataController().importDataset(request.files["fileCSV"], DatasetBefore)
         return redirect(url_for('DatasetBeforeKanjuruhan'))
 
 #Dataset Sesudah Kejadian Kanjuruhan
 @app.route('/api/dataset-sesudah-tragedi-kanjuruhan', methods=["GET"])
 def apiDatasetAfterKanjuruhan():
-    dataset = DataController().retrieveJSONAfter()
+    dataset = DataController().retrieveJSON(DatasetAfter)
     return dataset
 
 @app.route('/dataset/dataset-sesudah-tragedi-kanjuruhan', methods=["GET", "POST"])
@@ -133,7 +134,7 @@ def DatasetAfterKanjuruhan():
     if request.method == "GET":
         return render_template("/pages/dataset_after.html")
     elif request.method == "POST" and request.files:
-        DataController().importDatasetAfter(request.files["fileCSV"])
+        DataController().importDataset(request.files["fileCSV"], DatasetAfter)
         return redirect(url_for('DatasetAfterKanjuruhan'))
 
 #Pelabelan Sebelum Sebelum Tragedi Kanjuruhan
@@ -141,19 +142,28 @@ def DatasetAfterKanjuruhan():
 @login_required
 def labellingDatasetBefore():
     if request.method == 'POST':
-        LabelController(request.form).updateDatasetBefore()
+        LabelController(request.form).updateDataset(DatasetBefore)
         return redirect(url_for('labellingDatasetBefore'))
     elif request.method == 'GET':
         return render_template('/pages/label_dataset_before.html')
+
+@app.route('/pelabelan/dataset-sesudah-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
+def labellingDatasetAfter():
+    if request.method == 'POST':
+        LabelController(request.form).updateDataset(DatasetAfter)
+        return redirect(url_for('labellingDatasetAfter'))
+    elif request.method == 'GET':
+        return render_template('/pages/label_dataset_after.html')
 
 #Prapemrosesan Sebelum Tragedi Kanjuruhan
 @app.route('/preprocessing/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 def preprocessingDatasetBefore():
     if request.method == 'POST':
-        response = PreprocessingController().process()
+        response = PreprocessingController().process(DatasetBefore)
         return response
     elif request.method == 'GET':
-        jumlahDataset = DataController().retrieveDataBefore()
+        jumlahDataset = DataController().retrieveData(DatasetBefore)
         return render_template('/pages/preprocessing_dataset_before.html', jumlahDataset=len(jumlahDataset))
 
 #Pengujian Sebelum Tragedi Kanjuruhan
@@ -164,7 +174,7 @@ def testingDatasetBefore():
         response = TestingController().processTest(request.form)
         return response
     elif request.method == 'GET':
-        totalSplit = DataController().retrieveCountDataBefore()
+        totalSplit = DataController().retrieveCountData(Dataset)
         return render_template('/pages/testing_dataset_before.html', totalSplit = int(totalSplit))
 
 @app.errorhandler(401)
