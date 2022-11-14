@@ -14,7 +14,9 @@ from app.controllers.testingcontroller import TestingController
 @app.route('/', methods=['GET'])
 @login_required
 def index():
-    return render_template("/pages/index.html")
+    TotalDatasetBefore = DataController().retrieveCountData(DatasetBefore)
+    TotalDatasetAfter = DataController().retrieveCountData(DatasetAfter)
+    return render_template("/pages/index.html", TotalDatasetBefore=TotalDatasetBefore, TotalDatasetAfter=TotalDatasetAfter)
 
 @app.route('/sign-up', methods=['GET', 'POST'])
 def signUpRoute():
