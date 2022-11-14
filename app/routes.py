@@ -158,6 +158,7 @@ def labellingDatasetAfter():
 
 #Prapemrosesan Sebelum Tragedi Kanjuruhan
 @app.route('/preprocessing/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
 def preprocessingDatasetBefore():
     if request.method == 'POST':
         response = PreprocessingController().process(DatasetBefore)
@@ -166,16 +167,36 @@ def preprocessingDatasetBefore():
         jumlahDataset = DataController().retrieveData(DatasetBefore)
         return render_template('/pages/preprocessing_dataset_before.html', jumlahDataset=len(jumlahDataset))
 
+@app.route('/preprocessing/dataset-sesudah-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
+def preprocessingDatasetAfter():
+    if request.method == 'POST':
+        response = PreprocessingController().process(DatasetAfter)
+        return response
+    elif request.method == 'GET':
+        jumlahDataset = DataController().retrieveData(DatasetAfter)
+        return render_template('/pages/preprocessing_dataset_after.html', jumlahDataset=len(jumlahDataset))
+
 #Pengujian Sebelum Tragedi Kanjuruhan
 @app.route('/pengujian/dataset-sebelum-tragedi-kanjuruhan', methods=["GET", "POST"])
 @login_required
 def testingDatasetBefore():
     if request.method == 'POST':
-        response = TestingController().processTest(request.form)
+        response = TestingController(DatasetBefore).processTest(request.form)
         return response
     elif request.method == 'GET':
-        totalSplit = DataController().retrieveCountData(Dataset)
+        totalSplit = DataController().retrieveCountData(DatasetBefore)
         return render_template('/pages/testing_dataset_before.html', totalSplit = int(totalSplit))
+
+@app.route('/pengujian/dataset-sesudah-tragedi-kanjuruhan', methods=["GET", "POST"])
+@login_required
+def testingDatasetAfter():
+    if request.method == 'POST':
+        response = TestingController(DatasetAfter).processTest(request.form)
+        return response
+    elif request.method == 'GET':
+        totalSplit = DataController().retrieveCountData(DatasetAfter)
+        return render_template('/pages/testing_dataset_after.html', totalSplit = int(totalSplit))
 
 @app.errorhandler(401)
 def unauthorized(error):

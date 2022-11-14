@@ -1,0 +1,137 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+    .chartBox {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content" id="contentTestingData">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Pengujian</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
+                            <li class="breadcrumb-item">Pages</li>
+                            <li class="breadcrumb-item">Pengujian</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+        <!-- [ Table Content ] start -->
+        <div class="row">
+
+            <!-- [ Dataset Table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn btn-success" data-bs-toggle="modal" href="#importModalToggle" role="button"><i
+                                class="fa-solid fa-screwdriver-wrench" style="margin-left:-0.3em;"></i> &nbsp;Uji
+                                Data</a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- [ Dataset Table ] end -->
+
+        </div>
+        <!-- [ Table Content ] end -->
+
+
+        <!-- Modal Import File -->
+        <div class="modal fade" id="importModalToggle" aria-hidden="true" aria-labelledby="importTableExcel"
+            tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="importTableExcel">Uji Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST">
+                        <div class="modal-body">
+                            <p style="font-style: normal;">Sejumlah <strong id="totalSplit">{{ totalSplit }}</strong>
+                                dataset akan dibagi menjadi data latih dan data uji berdasarkan pilihan rasio pembagian
+                                dataset untuk dilakukan pengujian. Silahkan memilih rasio pembagian dataset</p>
+
+                            <div class="custom-control custom-radio custom-control">
+                                <input type="radio" id="rasio9_1" name="rasio" value="0.1" class="custom-control-input"
+                                    required />
+                                <label class="custom-control-label mr-3" for="rasio9_1">
+                                    9 : 1
+                                    <span class="text-muted ml-3" id="rasio91"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control">
+                                <input type="radio" id="rasio8_2" name="rasio" value="0.2" class="custom-control-input"
+                                    required />
+                                <label class="custom-control-label mr-3" for="rasio8_2">
+                                    8 : 2
+                                    <span class="text-muted ml-3" id="rasio82"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control">
+                                <input type="radio" id="rasio7_3" name="rasio" value="0.3" class="custom-control-input"
+                                    required />
+                                <label class="custom-control-label mr-3" for="rasio7_3">
+                                    7 : 3
+                                    <span class="text-muted ml-3" id="rasio73"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control">
+                                <input type="radio" id="rasio6_4" name="rasio" value="0.4" class="custom-control-input"
+                                    required />
+                                <label class="custom-control-label mr-3" for="rasio6_4">
+                                    6 : 4
+                                    <span class="text-muted ml-3" id="rasio64"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control">
+                                <input type="radio" id="rasio5_5" name="rasio" value="0.5" class="custom-control-input"
+                                    required />
+                                <label class="custom-control-label mr-3" for="rasio5_5">
+                                    5 : 5
+                                    <span class="text-muted ml-3" id="rasio55"></span>
+                                </label>
+                            </div>
+
+                            <br />
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="totalSplit" value="{{ totalSplit }}" required readonly />
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-primary" id="uji_Dataset_after">Uji</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Import File -->
+
+
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+{% endblock content %}
+{% block javascripts %}
+<script src="{{ url_for('static', filename = 'assets/vendor/chart/chart.min.js') }}"></script>
+{% endblock %}
