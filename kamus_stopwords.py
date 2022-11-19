@@ -2551,6 +2551,23 @@ stopwords_list = [
     "plontidak\n",
     "cah\n",
     "tidakut\n",
+    "haha\n",
+    "rang\n",
+    "dot\n",
+    "halahh\n",
+    "oh\n",
+    "ayo\n",
+    "ya\n",
+    "he\n",
+    "hess\n",
+    "asu\n",
+    "hhe\n",
+    "ah\n",
+    "hello\n",
+    "hmm\n",
+    "cok\n",
+    "e\n",
+    "jancok\n",
 ]
 
 res = []

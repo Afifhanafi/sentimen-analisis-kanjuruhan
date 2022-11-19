@@ -23524,7 +23524,7 @@ pre[class*=language-]:before {
 
 .pcoded-navbar.navbar-collapsed .pcoded-inner-navbar > li.pcoded-trigger .pcoded-submenu li a {
     color: transparent;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .pcoded-navbar.navbar-collapsed .pcoded-inner-navbar > li.pcoded-trigger .pcoded-submenu li + li a {
