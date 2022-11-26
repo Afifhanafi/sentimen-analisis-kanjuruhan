@@ -322,7 +322,7 @@ slangwords_list = [
     "sy:saya\n",
     "sya:saya\n",
     "syg:sayang\n",
-    "tak:tidak\n",
+    "tak:mau\n",
     "tau:tahu\n",
     "td:tadi\n",
     "tdk:tidak\n",
