@@ -1,260 +1,303 @@
-$('#table_slangwords').DataTable()
+$("#table_slangwords").DataTable();
 
-$('#table_stopwords').DataTable()
+$("#table_stopwords").DataTable();
 
-$('#table_dataset_before').DataTable({
-    "deferRender": true,
-    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
-    "columns": [
-        {
-            data: null, 
-            "render": function (data, type, full, meta) {
-                return  meta.row + 1;
-            },
-            className: 'text-center',
-        },
-        {
-            data: 'created_at',
-            className: 'text-center',
-        },
-        { 
-            data: 'username',
-            className: 'text-center',
-        },
-        {
-            data: 'raw_tweets',
-        },
-    ],
-})
+$("#table_dataset_before").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sebelum-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+      className: "text-center",
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+    },
+  ],
+});
 
-$('#table_dataset_after').DataTable({
-    "deferRender": true,
-    "ajax": "/api/dataset-sesudah-tragedi-kanjuruhan",
-    "columns": [
-        {
-            data: null, 
-            "render": function (data, type, full, meta) {
-                return  meta.row + 1;
-            },
-            className: 'text-center',
-        },
-        {
-            data: 'created_at',
-            className: 'text-center',
-        },
-        { 
-            data: 'username',
-            className: 'text-center',
-        },
-        {
-            data: 'raw_tweets',
-        },
-    ],
-})
+$("#table_dataset_after").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sesudah-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+      className: "text-center",
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+    },
+  ],
+});
 
-var table_labelling_before = $('#table_labelling_before').DataTable({
-	"deferRender": true,
-	"ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
-	"columns": [
-		{
-			data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-				return  meta.row + 1;
-			}
-		},
-        {
-			data: 'created_at',
-            className: 'text-center'
-	 	},
-        { 
-            data: 'username',
-            className: 'text-center'
-        },
-		{
-			data: 'raw_tweets',
-			className: 'text-left'
-	 	},
-         { 
-            data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-                if (data.label == "POSITIF"){
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-success">
-                            <option value="` + data.label + `" selected>` + data.label + `</option>
-                            <option value="NEGATIF">NEGATIF</option>
+var table_labelling_before = $("#table_labelling_before").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sebelum-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      className: "text-center",
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+      className: "text-left",
+    },
+    {
+      data: null,
+      className: "text-center",
+      render: function (data, type, full, meta) {
+        if (data.label == "Positif") {
+          return (
+            `
+                        <select name="label_data" id="opsi_label` +
+            data.id +
+            `" class="btn btn-success">
+                            <option value="` +
+            data.label +
+            `" selected>` +
+            data.label +
+            `</option>
+                            <option value="Negatif">Negatif</option>
                         </select>
-                    `;
-                }else{
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-danger">
-                            <option value="` + data.label + `" selected>`+data.label+`</option>
-                            <option value="POSITIF">POSITIF</option>
+                    `
+          );
+        } else {
+          return (
+            `
+                        <select name="label_data" id="opsi_label` +
+            data.id +
+            `" class="btn btn-danger">
+                            <option value="` +
+            data.label +
+            `" selected>` +
+            data.label +
+            `</option>
+                            <option value="Positif">Positif</option>
                         </select>
-                    `;
-                }
-			},
+                    `
+          );
         }
-	],
+      },
+    },
+  ],
 });
 
-$('#table_labelling_before tbody').on('change', 'select[name="label_data"]', function () {
-	var data = table_labelling_before.row($(this).parents('tr')).data();
-	id = data['id'];
-	value = $(this).find(":selected").text();
+$("#table_labelling_before tbody").on(
+  "change",
+  'select[name="label_data"]',
+  function () {
+    var data = table_labelling_before.row($(this).parents("tr")).data();
+    id = data["id"];
+    value = $(this).find(":selected").text();
 
-    if (value == "POSITIF") {
-        $('#opsi_label'+id).removeClass('btn btn-danger')
-        $('#opsi_label'+id).addClass('btn btn-success')
-    }else{
-        $('#opsi_label'+id).removeClass('btn btn-success')
-        $('#opsi_label'+id).addClass('btn btn-danger')
+    if (value == "Positif") {
+      $("#opsi_label" + id).removeClass("btn btn-danger");
+      $("#opsi_label" + id).addClass("btn btn-success");
+    } else {
+      $("#opsi_label" + id).removeClass("btn btn-success");
+      $("#opsi_label" + id).addClass("btn btn-danger");
     }
-	
-	$.ajax({
-		url         : "/pelabelan/dataset-sebelum-tragedi-kanjuruhan",
-		data		: {'id': id, 'value': value},
-		type        : "POST",
-		dataType	: "json",
-	});
-});
 
-var table_labelling_after = $('#table_labelling_after').DataTable({
-	"deferRender": true,
-	"ajax": "/api/dataset-sesudah-tragedi-kanjuruhan",
-	"columns": [
-		{
-			data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-				return  meta.row + 1;
-			}
-		},
-        {
-			data: 'created_at',
-            className: 'text-center'
-	 	},
-        { 
-            data: 'username',
-            className: 'text-center'
-        },
-		{
-			data: 'raw_tweets',
-			className: 'text-left'
-	 	},
-         { 
-            data: null,
-            className: 'text-center',
-			"render": function (data, type, full, meta) {
-                if (data.label == "POSITIF"){
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-success">
-                            <option value="` + data.label + `" selected>` + data.label + `</option>
-                            <option value="NEGATIF">NEGATIF</option>
+    $.ajax({
+      url: "/pelabelan/dataset-sebelum-tragedi-kanjuruhan",
+      data: { id: id, value: value },
+      type: "POST",
+      dataType: "json",
+    });
+  }
+);
+
+var table_labelling_after = $("#table_labelling_after").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sesudah-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      className: "text-center",
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+      className: "text-left",
+    },
+    {
+      data: null,
+      className: "text-center",
+      render: function (data, type, full, meta) {
+        if (data.label == "Positif") {
+          return (
+            `
+                        <select name="label_data" id="opsi_label` +
+            data.id +
+            `" class="btn btn-success">
+                            <option value="` +
+            data.label +
+            `" selected>` +
+            data.label +
+            `</option>
+                            <option value="Negatif">Negatif</option>
                         </select>
-                    `;
-                }else{
-                    return `
-                        <select name="label_data" id="opsi_label`+ data.id +`" class="btn btn-danger">
-                            <option value="` + data.label + `" selected>`+data.label+`</option>
-                            <option value="POSITIF">POSITIF</option>
+                    `
+          );
+        } else {
+          return (
+            `
+                        <select name="label_data" id="opsi_label` +
+            data.id +
+            `" class="btn btn-danger">
+                            <option value="` +
+            data.label +
+            `" selected>` +
+            data.label +
+            `</option>
+                            <option value="Positif">Positif</option>
                         </select>
-                    `;
-                }
-			},
+                    `
+          );
         }
-	],
+      },
+    },
+  ],
 });
 
-$('#table_labelling_after tbody').on('change', 'select[name="label_data"]', function () {
-	var data = table_labelling_after.row($(this).parents('tr')).data();
-	id = data['id'];
-	value = $(this).find(":selected").text();
+$("#table_labelling_after tbody").on(
+  "change",
+  'select[name="label_data"]',
+  function () {
+    var data = table_labelling_after.row($(this).parents("tr")).data();
+    id = data["id"];
+    value = $(this).find(":selected").text();
 
-    if (value == "POSITIF") {
-        $('#opsi_label'+id).removeClass('btn btn-danger')
-        $('#opsi_label'+id).addClass('btn btn-success')
-    }else{
-        $('#opsi_label'+id).removeClass('btn btn-success')
-        $('#opsi_label'+id).addClass('btn btn-danger')
+    if (value == "Positif") {
+      $("#opsi_label" + id).removeClass("btn btn-danger");
+      $("#opsi_label" + id).addClass("btn btn-success");
+    } else {
+      $("#opsi_label" + id).removeClass("btn btn-success");
+      $("#opsi_label" + id).addClass("btn btn-danger");
     }
-	
-	$.ajax({
-		url         : "/pelabelan/dataset-sesudah-tragedi-kanjuruhan",
-		data		: {'id': id, 'value': value},
-		type        : "POST",
-		dataType	: "json",
-	});
+
+    $.ajax({
+      url: "/pelabelan/dataset-sesudah-tragedi-kanjuruhan",
+      data: { id: id, value: value },
+      type: "POST",
+      dataType: "json",
+    });
+  }
+);
+
+$("#table_preprocessing_before").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sebelum-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+      className: "text-center",
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+    },
+  ],
 });
 
-$('#table_preprocessing_before').DataTable({
-    "deferRender": true,
-    "ajax": "/api/dataset-sebelum-tragedi-kanjuruhan",
-    "columns": [
-        {
-            data: null, 
-            "render": function (data, type, full, meta) {
-                return  meta.row + 1;
-            },
-            className: 'text-center',
-        },
-        {
-            data: 'created_at',
-            className: 'text-center',
-        },
-        { 
-            data: 'username',
-            className: 'text-center',
-        },
-        {
-            data: 'raw_tweets',
-        },
-    ],
-})
+$("#table_preprocessing_after").DataTable({
+  deferRender: true,
+  ajax: "/api/dataset-sesudah-tragedi-kanjuruhan",
+  columns: [
+    {
+      data: null,
+      render: function (data, type, full, meta) {
+        return meta.row + 1;
+      },
+      className: "text-center",
+    },
+    {
+      data: "created_at",
+      className: "text-center",
+    },
+    {
+      data: "username",
+      className: "text-center",
+    },
+    {
+      data: "raw_tweets",
+    },
+  ],
+});
 
-$('#table_preprocessing_after').DataTable({
-    "deferRender": true,
-    "ajax": "/api/dataset-sesudah-tragedi-kanjuruhan",
-    "columns": [
-        {
-            data: null, 
-            "render": function (data, type, full, meta) {
-                return  meta.row + 1;
-            },
-            className: 'text-center',
-        },
-        {
-            data: 'created_at',
-            className: 'text-center',
-        },
-        { 
-            data: 'username',
-            className: 'text-center',
-        },
-        {
-            data: 'raw_tweets',
-        },
-    ],
-})
+$("#Preprocessing_Dataset_Before").click(function () {
+  var form_dataArray = $("form").serializeArray();
+  var jumlah_dataset = parseInt($("#jumlah_dataset").html());
 
-$('#Preprocessing_Dataset_Before').click(function() {
+  // validasi data preprocessing
+  if (
+    jumlah_dataset > 0 &&
+    form_dataArray[0]["name"].trim() == "proses" &&
+    form_dataArray[0]["value"].trim() == "preprocessing"
+  ) {
+    var content = "";
 
-	var form_dataArray = $('form').serializeArray();
-	var jumlah_dataset = parseInt($('#jumlah_dataset').html());
-	
-	// validasi data preprocessing
-	if(jumlah_dataset > 0 && form_dataArray[0]['name'].trim() == 'proses' && form_dataArray[0]['value'].trim() == 'preprocessing') {
-		var content =	"";
-		
-		$.ajax({
-			url         : "/preprocessing/dataset-sebelum-tragedi-kanjuruhan",
-			data		: $('form').serialize(),
-			type        : "POST",
-			dataType	: "json",
-			beforeSend: function() {		
-
-				content +=	`
+    $.ajax({
+      url: "/preprocessing/dataset-sebelum-tragedi-kanjuruhan",
+      data: $("form").serialize(),
+      type: "POST",
+      dataType: "json",
+      beforeSend: function () {
+        content +=
+          `
                                 <!-- [ breadcrumb ] start -->
                                 <div class="page-header">
                                     <div class="page-block">
@@ -282,7 +325,9 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                     <div class="col-xl-12" id="infoPreprosessing">
                                         <div class="card text-center">
                                             <div class="card-body">
-                                                <h5 class="card-title">Memproses `+ jumlah_dataset +` data, mohon menunggu</h5>
+                                                <h5 class="card-title">Memproses ` +
+          jumlah_dataset +
+          ` data, mohon menunggu</h5>
                                                 <div class="d-flex justify-content-center" id="loader">
                                                     <button class="btn btn-primary m-2" type="button" disabled="">
                                                         <span class="spinner-border spinner-border-sm" role="status"></span>
@@ -295,13 +340,13 @@ $('#Preprocessing_Dataset_Before').click(function() {
                     
                                 </div>
 							`;
-							
-				$('#contentPreprocessingData').html(content);
-				$("#infoPreprosessing").show();
-			},
 
-			success     : function(response) {
-				content +=	`
+        $("#contentPreprocessingData").html(content);
+        $("#infoPreprosessing").show();
+      },
+
+      success: function (response) {
+        content += `
                                 <div class="row">
 
                                     <!-- [ Hasil Preprocessing ] start -->
@@ -346,19 +391,26 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                                                 </thead>
                                                                 <tbody>
 							`;
-							
-				$.each(response.awal_data, function(index) {
-					content +=	`
+
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.caseFolding_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.caseFolding_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -375,21 +427,25 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                                                 </thead>
 							`;
 
-
-
-                            
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.cleansing_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.cleansing_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -406,19 +462,25 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                                                 </thead>
 							`;
 
-
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.slangwords_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.slangwords_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -435,19 +497,25 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                                                 </thead>
 							`;
 
-
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.stopwordsRemoval_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.stopwordsRemoval_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -464,87 +532,90 @@ $('#Preprocessing_Dataset_Before').click(function() {
                                                                 </thead>
 							`;
 
-
-                $.each(response.awal_data, function(index) {
-                    content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.stemming_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.stemming_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-                });
-                
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
 
                             `;
 
-
-
-                    content +=	`
+        content += `
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 `;
 
-                
-				
-				$('#contentPreprocessingData').html(content);
-				
-                $("#infoPreprosessing").remove();
+        $("#contentPreprocessingData").html(content);
 
+        $("#infoPreprosessing").remove();
 
-				$('#table_preprocessing_casefolding').DataTable();
-				$('#table_preprocessing_cleansing').DataTable();
-				$('#table_preprocessing_slangwords').DataTable();
-				$('#table_preprocessing_StopwordsRemoval').DataTable();
-				$('#table_preprocessing_stemming').DataTable();
-				$('#table_preprocessing_token').DataTable();
-				
-				$('body').removeClass('modal-open');
-				$('body').removeAttr("style");
-                
-				$('#table_preprocessing_casefolding th').removeAttr("style");
-				$('#table_preprocessing_cleansing th').removeAttr("style");
-				$('#table_preprocessing_slangwords th').removeAttr("style");
-				$('#table_preprocessing_StopwordsRemoval th').removeAttr("style");
-				$('#table_preprocessing_stemming th').removeAttr("style");
-				$('#table_preprocessing_token th').removeAttr("style");
+        $("#table_preprocessing_casefolding").DataTable();
+        $("#table_preprocessing_cleansing").DataTable();
+        $("#table_preprocessing_slangwords").DataTable();
+        $("#table_preprocessing_StopwordsRemoval").DataTable();
+        $("#table_preprocessing_stemming").DataTable();
+        $("#table_preprocessing_token").DataTable();
 
-				$('.modal-backdrop').remove();
-			},
-			error     : function(x) {
-				console.log(x.responseText);
-			}
-		});
-	} 
-	else {
-		console.log("error")
-	}
+        $("body").removeClass("modal-open");
+        $("body").removeAttr("style");
+
+        $("#table_preprocessing_casefolding th").removeAttr("style");
+        $("#table_preprocessing_cleansing th").removeAttr("style");
+        $("#table_preprocessing_slangwords th").removeAttr("style");
+        $("#table_preprocessing_StopwordsRemoval th").removeAttr("style");
+        $("#table_preprocessing_stemming th").removeAttr("style");
+        $("#table_preprocessing_token th").removeAttr("style");
+
+        $(".modal-backdrop").remove();
+      },
+      error: function (x) {
+        console.log(x.responseText);
+      },
+    });
+  } else {
+    console.log("error");
+  }
 });
 
-$('#Preprocessing_Dataset_After').click(function() {
+$("#Preprocessing_Dataset_After").click(function () {
+  var form_dataArray = $("form").serializeArray();
+  var jumlah_dataset = parseInt($("#jumlah_dataset").html());
 
-	var form_dataArray = $('form').serializeArray();
-	var jumlah_dataset = parseInt($('#jumlah_dataset').html());
-	
-	// validasi data preprocessing
-	if(jumlah_dataset > 0 && form_dataArray[0]['name'].trim() == 'proses' && form_dataArray[0]['value'].trim() == 'preprocessing') {
-		var content =	"";
-		
-		$.ajax({
-			url         : "/preprocessing/dataset-sesudah-tragedi-kanjuruhan",
-			data		: $('form').serialize(),
-			type        : "POST",
-			dataType	: "json",
-			beforeSend: function() {		
+  // validasi data preprocessing
+  if (
+    jumlah_dataset > 0 &&
+    form_dataArray[0]["name"].trim() == "proses" &&
+    form_dataArray[0]["value"].trim() == "preprocessing"
+  ) {
+    var content = "";
 
-				content +=	`
+    $.ajax({
+      url: "/preprocessing/dataset-sesudah-tragedi-kanjuruhan",
+      data: $("form").serialize(),
+      type: "POST",
+      dataType: "json",
+      beforeSend: function () {
+        content +=
+          `
                                 <!-- [ breadcrumb ] start -->
                                 <div class="page-header">
                                     <div class="page-block">
@@ -572,7 +643,9 @@ $('#Preprocessing_Dataset_After').click(function() {
                                     <div class="col-xl-12" id="infoPreprosessing">
                                         <div class="card text-center">
                                             <div class="card-body">
-                                                <h5 class="card-title">Memproses `+ jumlah_dataset +` data, mohon menunggu</h5>
+                                                <h5 class="card-title">Memproses ` +
+          jumlah_dataset +
+          ` data, mohon menunggu</h5>
                                                 <div class="d-flex justify-content-center" id="loader">
                                                     <button class="btn btn-primary m-2" type="button" disabled="">
                                                         <span class="spinner-border spinner-border-sm" role="status"></span>
@@ -585,13 +658,13 @@ $('#Preprocessing_Dataset_After').click(function() {
                     
                                 </div>
 							`;
-							
-				$('#contentPreprocessingData').html(content);
-				$("#infoPreprosessing").show();
-			},
 
-			success     : function(response) {
-				content +=	`
+        $("#contentPreprocessingData").html(content);
+        $("#infoPreprosessing").show();
+      },
+
+      success: function (response) {
+        content += `
                                 <div class="row">
 
                                     <!-- [ Hasil Preprocessing ] start -->
@@ -636,19 +709,26 @@ $('#Preprocessing_Dataset_After').click(function() {
                                                                 </thead>
                                                                 <tbody>
 							`;
-							
-				$.each(response.awal_data, function(index) {
-					content +=	`
+
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.caseFolding_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.caseFolding_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -665,21 +745,25 @@ $('#Preprocessing_Dataset_After').click(function() {
                                                                 </thead>
 							`;
 
-
-
-                            
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.cleansing_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.cleansing_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -696,19 +780,25 @@ $('#Preprocessing_Dataset_After').click(function() {
                                                                 </thead>
 							`;
 
-
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.slangwords_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.slangwords_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -725,19 +815,25 @@ $('#Preprocessing_Dataset_After').click(function() {
                                                                 </thead>
 							`;
 
-
-				$.each(response.awal_data, function(index) {
-					content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.stopwordsRemoval_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.stopwordsRemoval_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -754,85 +850,83 @@ $('#Preprocessing_Dataset_After').click(function() {
                                                                 </thead>
 							`;
 
-
-                $.each(response.awal_data, function(index) {
-                    content +=	`
+        $.each(response.awal_data, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.awal_data[--index] +`</td>
-                                                                        <td>`+ response.stemming_data[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.awal_data[--index] +
+            `</td>
+                                                                        <td>` +
+            response.stemming_data[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-                });
-                
-                    content +=	`			                    </tbody>
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
 
                             `;
 
-
-
-                    content +=	`
+        content += `
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 `;
 
-                
-				
-				$('#contentPreprocessingData').html(content);
-				
-                $("#infoPreprosessing").remove();
+        $("#contentPreprocessingData").html(content);
 
+        $("#infoPreprosessing").remove();
 
-				$('#table_preprocessing_casefolding').DataTable();
-				$('#table_preprocessing_cleansing').DataTable();
-				$('#table_preprocessing_slangwords').DataTable();
-				$('#table_preprocessing_StopwordsRemoval').DataTable();
-				$('#table_preprocessing_stemming').DataTable();
-				$('#table_preprocessing_token').DataTable();
-				
-				$('body').removeClass('modal-open');
-				$('body').removeAttr("style");
-                
-				$('#table_preprocessing_casefolding th').removeAttr("style");
-				$('#table_preprocessing_cleansing th').removeAttr("style");
-				$('#table_preprocessing_slangwords th').removeAttr("style");
-				$('#table_preprocessing_StopwordsRemoval th').removeAttr("style");
-				$('#table_preprocessing_stemming th').removeAttr("style");
-				$('#table_preprocessing_token th').removeAttr("style");
+        $("#table_preprocessing_casefolding").DataTable();
+        $("#table_preprocessing_cleansing").DataTable();
+        $("#table_preprocessing_slangwords").DataTable();
+        $("#table_preprocessing_StopwordsRemoval").DataTable();
+        $("#table_preprocessing_stemming").DataTable();
+        $("#table_preprocessing_token").DataTable();
 
-				$('.modal-backdrop').remove();
-			},
-			error     : function(x) {
-				console.log(x.responseText);
-			}
-		});
-	} 
-	else {
-		console.log("error")
-	}
+        $("body").removeClass("modal-open");
+        $("body").removeAttr("style");
+
+        $("#table_preprocessing_casefolding th").removeAttr("style");
+        $("#table_preprocessing_cleansing th").removeAttr("style");
+        $("#table_preprocessing_slangwords th").removeAttr("style");
+        $("#table_preprocessing_StopwordsRemoval th").removeAttr("style");
+        $("#table_preprocessing_stemming th").removeAttr("style");
+        $("#table_preprocessing_token th").removeAttr("style");
+
+        $(".modal-backdrop").remove();
+      },
+      error: function (x) {
+        console.log(x.responseText);
+      },
+    });
+  } else {
+    console.log("error");
+  }
 });
 
-$('#uji_Dataset_before').click(function() {
+$("#uji_Dataset_before").click(function () {
+  var totalSplit = parseInt($("#totalSplit").html());
 
-	var totalSplit = parseInt($('#totalSplit').html());
-	
-	if(totalSplit > 0) {
-		var content =	"";
-		
-		$.ajax({
-			url         : "/pengujian/dataset-sebelum-tragedi-kanjuruhan",
-			data		: $('form').serialize(),
-			type        : "POST",
-			dataType	: "json",
-			beforeSend: function() {		
+  if (totalSplit > 0) {
+    var content = "";
 
-				content +=	`
+    $.ajax({
+      url: "/pengujian/dataset-sebelum-tragedi-kanjuruhan",
+      data: $("form").serialize(),
+      type: "POST",
+      dataType: "json",
+      beforeSend: function () {
+        content += `
                                 <!-- [ breadcrumb ] start -->
                                 <div class="page-header">
                                     <div class="page-block">
@@ -873,13 +967,13 @@ $('#uji_Dataset_before').click(function() {
                     
                                 </div>
 							`;
-							
-				$('#contentTestingData').html(content);
-				$("#infoTesting").show();
-			},
 
-			success     : function(response) {
-				content +=	`
+        $("#contentTestingData").html(content);
+        $("#infoTesting").show();
+      },
+
+      success: function (response) {
+        content += `
                                 <div class="row">
 
                                     <!-- [ Hasil Pengujian ] start -->
@@ -918,18 +1012,25 @@ $('#uji_Dataset_before').click(function() {
                                                                 <tbody>
                                                            
 							`;
-							
-				$.each(response.X_train, function(index) {
-					content +=	`
+
+        $.each(response.X_train, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.X_train[--index] +`</td>
-                                                                        <td class="text-center" width="20%">`+ response.y_train[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.X_train[--index] +
+            `</td>
+                                                                        <td class="text-center" width="20%">` +
+            response.y_train[index] +
+            `</td>
                                                                     </tr>
-                            `;                          
-				});
-				
-                    content +=	`			                    </tbody>
+                            `;
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -949,22 +1050,29 @@ $('#uji_Dataset_before').click(function() {
 
 							`;
 
-
-
-                            
-				$.each(response.X_test, function(index) {
-					content +=	`
+        $.each(response.X_test, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.X_test[--index] +`</td>
-                                                                        <td class="text-center" width="15%">`+ response.y_test[index] +`</td>
-                                                                        <td class="text-center" width="15%">`+ response.predict[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.X_test[--index] +
+            `</td>
+                                                                        <td class="text-center" width="15%">` +
+            response.y_test[index] +
+            `</td>
+                                                                        <td class="text-center" width="15%">` +
+            response.predict[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			              
+        });
+
+        content +=
+          `			              
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -1002,41 +1110,66 @@ $('#uji_Dataset_before').click(function() {
                                                             <tr>
                                                                 <td class="align-middle"><b>Positif</b></td>
                                                                 <td class="bg-primary">
-                                                                    <h5 class="text-light">`+ response.cmatrix['tpositif'] +`</h5>
+                                                                    <h5 class="text-light">` +
+          response.cmatrix["tPositif"] +
+          `</h5>
                                                                     <small class="text-light">TP(<em>True Positive</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ response.cmatrix['fnegatif'] +`</h5>
+                                                                    <h5 class="text-dark">` +
+          response.cmatrix["fNegatif"] +
+          `</h5>
                                                                     <small>FN (<em>False Negatif</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['fnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["fNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Negatif</b></td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ response.cmatrix['fpositif'] +`</h5>
+                                                                    <h5 class="text-dark">` +
+          response.cmatrix["fPositif"] +
+          `</h5>
                                                                     <small>FP (<em>False Positive</em>)</small>
                                                                 </td>
                                                                 <td class="bg-primary">
-                                                                    <h5 class="text-light">`+ response.cmatrix['tnegatif'] +`</h5>
+                                                                    <h5 class="text-light">` +
+          response.cmatrix["tNegatif"] +
+          `</h5>
                                                                     <small class="text-light">TN (<em>True Negatif</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['fpositif']) + parseInt(response.cmatrix['tnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["fPositif"]) +
+            parseInt(response.cmatrix["tNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Total</b></td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['fpositif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["fPositif"])) +
+          `</h5>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['fnegatif']) + parseInt(response.cmatrix['tnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["fNegatif"]) +
+            parseInt(response.cmatrix["tNegatif"])) +
+          `</h5>
                                                                 </td>
                                                                 <td class="bg-info">
-                                                                    <h5 class="text-light">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['tnegatif']) + parseInt(response.cmatrix['fpositif'])+ parseInt(response.cmatrix['fnegatif'])) +`</h5>
+                                                                    <h5 class="text-light">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["tNegatif"]) +
+            parseInt(response.cmatrix["fPositif"]) +
+            parseInt(response.cmatrix["fNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -1064,26 +1197,76 @@ $('#uji_Dataset_before').click(function() {
                                                             <td><span class="h6 text-dark">= (((TP / ( TP + FN )) + (TN / ( TN + FP ))) / 2) x 100% </span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="h6 text-dark">= ((`+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['tnegatif'] +`) / (`+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fpositif'] +` + `+ response.cmatrix['fnegatif'] +`)) x 100%</span></td>
+                                                            <td><span class="h6 text-dark">= ((` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["tNegatif"] +
+          `) / (` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          `)) x 100%</span></td>
                                                             <td>
                                                                 <span class="h6 text-dark">
-                                                                    = (((`+ response.cmatrix['tpositif'] +` / ( `+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['fpositif'] +` )) + (`+ response.cmatrix['tnegatif'] +` / ( `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fnegatif'] +` ))) / 2) x 100%
+                                                                    = (((` +
+          response.cmatrix["tPositif"] +
+          ` / ( ` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` )) + (` +
+          response.cmatrix["tNegatif"] +
+          ` / ( ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          ` ))) / 2) x 100%
                                                                     <br>
-                                                                    = ((`+ response.cmatrix['precision_p'] +`) + (`+ response.cmatrix['precision_n'] +`) / 2) x 100%
+                                                                    = ((` +
+          response.cmatrix["precision_p"] +
+          `) + (` +
+          response.cmatrix["precision_n"] +
+          `) / 2) x 100%
                                                                 </span>
                                                             </td>
                                                             <td>
                                                                 <span class="h6 text-dark">
-                                                                    = (((`+ response.cmatrix['tpositif'] +` / ( `+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['fnegatif'] +` )) + (`+ response.cmatrix['tnegatif'] +` / ( `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fpositif'] +` ))) / 2) x 100% 
+                                                                    = (((` +
+          response.cmatrix["tPositif"] +
+          ` / ( ` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          ` )) + (` +
+          response.cmatrix["tNegatif"] +
+          ` / ( ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` ))) / 2) x 100% 
                                                                     <br>
-                                                                    = ((`+ response.cmatrix['recall_p'] +`) + (`+ response.cmatrix['recall_n'] +`) / 2) x 100%
+                                                                    = ((` +
+          response.cmatrix["recall_p"] +
+          `) + (` +
+          response.cmatrix["recall_n"] +
+          `) / 2) x 100%
                                                                 </span>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['accuration'] * 100) +`%</span></td>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['precision_rate'] * 100) +`%</span></td>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['recall_rate'] * 100) +`%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["accuration"] * 100) +
+          `%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["precision_rate"] * 100) +
+          `%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["recall_rate"] * 100) +
+          `%</span></td>
                                                         </tr>
 
                                                     </tbody>
@@ -1124,7 +1307,11 @@ $('#uji_Dataset_before').click(function() {
                                             ],
                                             datasets: [{
                                             label: 'My First Dataset',
-                                            data: [`+ response.cmatrix['total_p'] +`, `+ response.cmatrix['total_n'] +`],
+                                            data: [` +
+          response.cmatrix["total_p"] +
+          `, ` +
+          response.cmatrix["total_n"] +
+          `],
                                             backgroundColor: [
                                                 'rgb(54, 162, 235)',
                                                 'rgb(255, 99, 132)',
@@ -1140,49 +1327,44 @@ $('#uji_Dataset_before').click(function() {
                                     });
                                 </script>
 							`;
-				
 
-				$('#contentTestingData').html(content);
-				
-                $("#infoTesting").remove();
+        $("#contentTestingData").html(content);
 
+        $("#infoTesting").remove();
 
-				$('#table_dataLatih').DataTable();
-				$('#table_dataUji').DataTable();
-				
-				$('body').removeClass('modal-open');
-				$('body').removeAttr("style");
-                
-				$('#table_dataLatih th').removeAttr("style");
-				$('#table_dataUji th').removeAttr("style");
+        $("#table_dataLatih").DataTable();
+        $("#table_dataUji").DataTable();
 
-				$('.modal-backdrop').remove();
-			},
-			error     : function(x) {
-				console.log(x.responseText);
-			}
-		});
-	} 
-	else {
-		console.log("Error")
-	}
+        $("body").removeClass("modal-open");
+        $("body").removeAttr("style");
+
+        $("#table_dataLatih th").removeAttr("style");
+        $("#table_dataUji th").removeAttr("style");
+
+        $(".modal-backdrop").remove();
+      },
+      error: function (x) {
+        console.log(x.responseText);
+      },
+    });
+  } else {
+    console.log("Error");
+  }
 });
 
-$('#uji_Dataset_after').click(function() {
+$("#uji_Dataset_after").click(function () {
+  var totalSplit = parseInt($("#totalSplit").html());
 
-	var totalSplit = parseInt($('#totalSplit').html());
-	
-	if(totalSplit > 0) {
-		var content =	"";
-		
-		$.ajax({
-			url         : "/pengujian/dataset-sesudah-tragedi-kanjuruhan",
-			data		: $('form').serialize(),
-			type        : "POST",
-			dataType	: "json",
-			beforeSend: function() {		
+  if (totalSplit > 0) {
+    var content = "";
 
-				content +=	`
+    $.ajax({
+      url: "/pengujian/dataset-sesudah-tragedi-kanjuruhan",
+      data: $("form").serialize(),
+      type: "POST",
+      dataType: "json",
+      beforeSend: function () {
+        content += `
                                 <!-- [ breadcrumb ] start -->
                                 <div class="page-header">
                                     <div class="page-block">
@@ -1223,13 +1405,13 @@ $('#uji_Dataset_after').click(function() {
                     
                                 </div>
 							`;
-							
-				$('#contentTestingData').html(content);
-				$("#infoTesting").show();
-			},
 
-			success     : function(response) {
-				content +=	`
+        $("#contentTestingData").html(content);
+        $("#infoTesting").show();
+      },
+
+      success: function (response) {
+        content += `
                                 <div class="row">
 
                                     <!-- [ Hasil Pengujian ] start -->
@@ -1268,18 +1450,25 @@ $('#uji_Dataset_after').click(function() {
                                                                 <tbody>
                                                            
 							`;
-							
-				$.each(response.X_train, function(index) {
-					content +=	`
+
+        $.each(response.X_train, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.X_train[--index] +`</td>
-                                                                        <td class="text-center" width="20%">`+ response.y_train[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.X_train[--index] +
+            `</td>
+                                                                        <td class="text-center" width="20%">` +
+            response.y_train[index] +
+            `</td>
                                                                     </tr>
-                            `;                          
-				});
-				
-                    content +=	`			                    </tbody>
+                            `;
+        });
+
+        content += `			                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -1299,22 +1488,29 @@ $('#uji_Dataset_after').click(function() {
 
 							`;
 
-
-
-                            
-				$.each(response.X_test, function(index) {
-					content +=	`
+        $.each(response.X_test, function (index) {
+          content +=
+            `
                                                                     <tr>
-                                                                        <td class="text-center">`+ ++index +`</td>
-                                                                        <td>`+ response.X_test[--index] +`</td>
-                                                                        <td class="text-center" width="15%">`+ response.y_test[index] +`</td>
-                                                                        <td class="text-center" width="15%">`+ response.predict[index] +`</td>
+                                                                        <td class="text-center">` +
+            ++index +
+            `</td>
+                                                                        <td>` +
+            response.X_test[--index] +
+            `</td>
+                                                                        <td class="text-center" width="15%">` +
+            response.y_test[index] +
+            `</td>
+                                                                        <td class="text-center" width="15%">` +
+            response.predict[index] +
+            `</td>
                                                                     </tr>
                                                                 
                             `;
-				});
-				
-                    content +=	`			              
+        });
+
+        content +=
+          `			              
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -1352,41 +1548,66 @@ $('#uji_Dataset_after').click(function() {
                                                             <tr>
                                                                 <td class="align-middle"><b>Positif</b></td>
                                                                 <td class="bg-primary">
-                                                                    <h5 class="text-light">`+ response.cmatrix['tpositif'] +`</h5>
+                                                                    <h5 class="text-light">` +
+          response.cmatrix["tPositif"] +
+          `</h5>
                                                                     <small class="text-light">TP(<em>True Positive</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ response.cmatrix['fnegatif'] +`</h5>
+                                                                    <h5 class="text-dark">` +
+          response.cmatrix["fNegatif"] +
+          `</h5>
                                                                     <small>FN (<em>False Negatif</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['fnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["fNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Negatif</b></td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ response.cmatrix['fpositif'] +`</h5>
+                                                                    <h5 class="text-dark">` +
+          response.cmatrix["fPositif"] +
+          `</h5>
                                                                     <small>FP (<em>False Positive</em>)</small>
                                                                 </td>
                                                                 <td class="bg-primary">
-                                                                    <h5 class="text-light">`+ response.cmatrix['tnegatif'] +`</h5>
+                                                                    <h5 class="text-light">` +
+          response.cmatrix["tNegatif"] +
+          `</h5>
                                                                     <small class="text-light">TN (<em>True Negatif</em>)</small>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['fpositif']) + parseInt(response.cmatrix['tnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["fPositif"]) +
+            parseInt(response.cmatrix["tNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Total</b></td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['fpositif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["fPositif"])) +
+          `</h5>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="text-dark">`+ (parseInt(response.cmatrix['fnegatif']) + parseInt(response.cmatrix['tnegatif'])) +`</h5>
+                                                                    <h5 class="text-dark">` +
+          (parseInt(response.cmatrix["fNegatif"]) +
+            parseInt(response.cmatrix["tNegatif"])) +
+          `</h5>
                                                                 </td>
                                                                 <td class="bg-info">
-                                                                    <h5 class="text-light">`+ (parseInt(response.cmatrix['tpositif']) + parseInt(response.cmatrix['tnegatif']) + parseInt(response.cmatrix['fpositif'])+ parseInt(response.cmatrix['fnegatif'])) +`</h5>
+                                                                    <h5 class="text-light">` +
+          (parseInt(response.cmatrix["tPositif"]) +
+            parseInt(response.cmatrix["tNegatif"]) +
+            parseInt(response.cmatrix["fPositif"]) +
+            parseInt(response.cmatrix["fNegatif"])) +
+          `</h5>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -1414,26 +1635,76 @@ $('#uji_Dataset_after').click(function() {
                                                             <td><span class="h6 text-dark">= (((TP / ( TP + FN )) + (TN / ( TN + FP ))) / 2) x 100% </span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="h6 text-dark">= ((`+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['tnegatif'] +`) / (`+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fpositif'] +` + `+ response.cmatrix['fnegatif'] +`)) x 100%</span></td>
+                                                            <td><span class="h6 text-dark">= ((` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["tNegatif"] +
+          `) / (` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          `)) x 100%</span></td>
                                                             <td>
                                                                 <span class="h6 text-dark">
-                                                                    = (((`+ response.cmatrix['tpositif'] +` / ( `+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['fpositif'] +` )) + (`+ response.cmatrix['tnegatif'] +` / ( `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fnegatif'] +` ))) / 2) x 100%
+                                                                    = (((` +
+          response.cmatrix["tPositif"] +
+          ` / ( ` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` )) + (` +
+          response.cmatrix["tNegatif"] +
+          ` / ( ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          ` ))) / 2) x 100%
                                                                     <br>
-                                                                    = ((`+ response.cmatrix['precision_p'] +`) + (`+ response.cmatrix['precision_n'] +`) / 2) x 100%
+                                                                    = ((` +
+          response.cmatrix["precision_p"] +
+          `) + (` +
+          response.cmatrix["precision_n"] +
+          `) / 2) x 100%
                                                                 </span>
                                                             </td>
                                                             <td>
                                                                 <span class="h6 text-dark">
-                                                                    = (((`+ response.cmatrix['tpositif'] +` / ( `+ response.cmatrix['tpositif'] +` + `+ response.cmatrix['fnegatif'] +` )) + (`+ response.cmatrix['tnegatif'] +` / ( `+ response.cmatrix['tnegatif'] +` + `+ response.cmatrix['fpositif'] +` ))) / 2) x 100% 
+                                                                    = (((` +
+          response.cmatrix["tPositif"] +
+          ` / ( ` +
+          response.cmatrix["tPositif"] +
+          ` + ` +
+          response.cmatrix["fNegatif"] +
+          ` )) + (` +
+          response.cmatrix["tNegatif"] +
+          ` / ( ` +
+          response.cmatrix["tNegatif"] +
+          ` + ` +
+          response.cmatrix["fPositif"] +
+          ` ))) / 2) x 100% 
                                                                     <br>
-                                                                    = ((`+ response.cmatrix['recall_p'] +`) + (`+ response.cmatrix['recall_n'] +`) / 2) x 100%
+                                                                    = ((` +
+          response.cmatrix["recall_p"] +
+          `) + (` +
+          response.cmatrix["recall_n"] +
+          `) / 2) x 100%
                                                                 </span>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['accuration'] * 100) +`%</span></td>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['precision_rate'] * 100) +`%</span></td>
-                                                            <td><span class="h6 text-dark">= `+ Math.round(response.cmatrix['recall_rate'] * 100) +`%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["accuration"] * 100) +
+          `%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["precision_rate"] * 100) +
+          `%</span></td>
+                                                            <td><span class="h6 text-dark">= ` +
+          Math.round(response.cmatrix["recall_rate"] * 100) +
+          `%</span></td>
                                                         </tr>
 
                                                     </tbody>
@@ -1474,7 +1745,11 @@ $('#uji_Dataset_after').click(function() {
                                             ],
                                             datasets: [{
                                             label: 'My First Dataset',
-                                            data: [`+ response.cmatrix['total_p'] +`, `+ response.cmatrix['total_n'] +`],
+                                            data: [` +
+          response.cmatrix["total_p"] +
+          `, ` +
+          response.cmatrix["total_n"] +
+          `],
                                             backgroundColor: [
                                                 'rgb(54, 162, 235)',
                                                 'rgb(255, 99, 132)',
@@ -1490,30 +1765,27 @@ $('#uji_Dataset_after').click(function() {
                                     });
                                 </script>
 							`;
-				
 
-				$('#contentTestingData').html(content);
-				
-                $("#infoTesting").remove();
+        $("#contentTestingData").html(content);
 
+        $("#infoTesting").remove();
 
-				$('#table_dataLatih').DataTable();
-				$('#table_dataUji').DataTable();
-				
-				$('body').removeClass('modal-open');
-				$('body').removeAttr("style");
-                
-				$('#table_dataLatih th').removeAttr("style");
-				$('#table_dataUji th').removeAttr("style");
+        $("#table_dataLatih").DataTable();
+        $("#table_dataUji").DataTable();
 
-				$('.modal-backdrop').remove();
-			},
-			error     : function(x) {
-				console.log(x.responseText);
-			}
-		});
-	} 
-	else {
-		console.log("Error")
-	}
+        $("body").removeClass("modal-open");
+        $("body").removeAttr("style");
+
+        $("#table_dataLatih th").removeAttr("style");
+        $("#table_dataUji th").removeAttr("style");
+
+        $(".modal-backdrop").remove();
+      },
+      error: function (x) {
+        console.log(x.responseText);
+      },
+    });
+  } else {
+    console.log("Error");
+  }
 });

@@ -47,44 +47,44 @@ class TestingController:
         total_p = len([t for t in predicted if t == 1])
         total_n = len([t for t in predicted if t == 0])
         
-        true_positif = 0
-        true_negatif = 0
-        false_positif = 0
-        false_negatif = 0
+        true_Positif = 0
+        true_Negatif = 0
+        false_Positif = 0
+        false_Negatif = 0
 
         for i in range(len(predicted)):
             if predicted[i] == 1:
                 if predicted[i] == y_test1[i]:
-                    true_positif += 1
+                    true_Positif += 1
                 else:
-                    false_negatif += 1
+                    false_Negatif += 1
             else:
                 if predicted[i] == y_test1[i]:
-                    true_negatif += 1
+                    true_Negatif += 1
                 else:
-                    false_positif += 1
+                    false_Positif += 1
 
         predicted = list(predicted)
         predicted = [self.Analyze_score(x) for x in predicted]
         
-        total = true_positif + true_negatif + false_positif + false_negatif
-        accuration = ((true_positif + true_negatif) / (total))
+        total = true_Positif + true_Negatif + false_Positif + false_Negatif
+        accuration = ((true_Positif + true_Negatif) / (total))
         
-        precision_p = (true_positif / (true_positif + false_positif))
-        precision_n = (true_negatif / (true_negatif + false_negatif))
+        precision_p = (true_Positif / (true_Positif + false_Positif))
+        precision_n = (true_Negatif / (true_Negatif + false_Negatif))
         
         precision_rate = ((precision_p + precision_n) / 2)
         
-        recall_p = (true_positif / (true_positif + false_negatif))
-        recall_n = (true_negatif / (true_negatif + false_positif))
+        recall_p = (true_Positif / (true_Positif + false_Negatif))
+        recall_n = (true_Negatif / (true_Negatif + false_Positif))
         
         recall_rate = ((recall_p + recall_n) / 2)
         
         cmatrix = {
-			'tpositif': true_positif,
-			'tnegatif': true_negatif,
-			'fpositif': false_positif,
-			'fnegatif': false_negatif,
+			'tPositif': true_Positif,
+			'tNegatif': true_Negatif,
+			'fPositif': false_Positif,
+			'fNegatif': false_Negatif,
 			'accuration': round(accuration, 2),
 			'precision_p': round(precision_p, 2),
 			'precision_n': round(precision_n, 2),
