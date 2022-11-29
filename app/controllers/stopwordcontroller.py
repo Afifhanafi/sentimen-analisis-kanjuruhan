@@ -14,7 +14,7 @@ class StopwordController:
                 db.session.add(uploadStopwords)
             db.session.commit()
             
-            flash("The file successfully imported", "success")
+            flash("Berkas berhasil diimpor", "success")
         except Exception as e:
             flash(f"File failed to import", "danger")
             return e

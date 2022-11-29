@@ -307,8 +307,7 @@ $("#Preprocessing_Dataset_Before").click(function () {
                                                     <h5 class="m-b-10"><em>Preprocessing</em></h5>
                                                 </div>
                                                 <ul class="breadcrumb">
-                                                    <li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-                                                    <li class="breadcrumb-item"><em>Pages</em></li>
+                                                    <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
                                                     <li class="breadcrumb-item"><em>Preprocessing</em></li>
                                                 </ul>
                                             </div>
@@ -625,8 +624,7 @@ $("#Preprocessing_Dataset_After").click(function () {
                                                     <h5 class="m-b-10"><em>Preprocessing</em></h5>
                                                 </div>
                                                 <ul class="breadcrumb">
-                                                    <li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-                                                    <li class="breadcrumb-item"><em>Pages</em></li>
+                                                    <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
                                                     <li class="breadcrumb-item"><em>Preprocessing</em></li>
                                                 </ul>
                                             </div>
@@ -936,8 +934,7 @@ $("#uji_Dataset_before").click(function () {
                                                     <h5 class="m-b-10">Pengujian</h5>
                                                 </div>
                                                 <ul class="breadcrumb">
-                                                    <li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-                                                    <li class="breadcrumb-item"><em>Pages</em></li>
+                                                    <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
                                                     <li class="breadcrumb-item">Pengujian</li>
                                                 </ul>
                                             </div>
@@ -984,7 +981,7 @@ $("#uji_Dataset_before").click(function () {
                                                     Berhasil melakukan pembagian dan pengujian data
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>
-                                                <a class="btn btn-success" href="/pages/pengujian"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
+                                                <a class="btn btn-success" href="/pengujian/dataset-sebelum-tragedi-kanjuruhan"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
                                             </div>
 
                                             <div class="card-body">
@@ -1374,8 +1371,7 @@ $("#uji_Dataset_after").click(function () {
                                                     <h5 class="m-b-10">Pengujian</h5>
                                                 </div>
                                                 <ul class="breadcrumb">
-                                                    <li class="breadcrumb-item"><i class="feather icon-home"></i></li>
-                                                    <li class="breadcrumb-item"><em>Pages</em></li>
+                                                    <li class="breadcrumb-item"><i class="fa-solid fa-house"></i></li>
                                                     <li class="breadcrumb-item">Pengujian</li>
                                                 </ul>
                                             </div>
@@ -1422,7 +1418,7 @@ $("#uji_Dataset_after").click(function () {
                                                     Berhasil melakukan pembagian dan pengujian data
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>
-                                                <a class="btn btn-success" href="/pages/pengujian"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
+                                                <a class="btn btn-success" href="/pengujian/dataset-sesudah-tragedi-kanjuruhan"><i class="fa-solid fa-arrow-left" style="margin-left:-0.3em;"></i> &nbsp;Kembali</a>
                                             </div>
 
                                             <div class="card-body">

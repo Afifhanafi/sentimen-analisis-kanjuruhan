@@ -22723,7 +22723,7 @@ pre[class*=language-]:before {
 .pcoded-header .input-group .input-group-text:hover,
     .pcoded-header a:hover,
     .pcoded-header dropdown-toggle:hover {
-    color: #3b4650;
+    color: #54e2b7;
 }
 
 .pcoded-header #mobile-header {
@@ -22930,7 +22930,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-header .dropdown .notification .noti-head {
-    background: #3b4650;
+    background: #54e2b7;
     padding: 15px 20px;
 }
 
@@ -23018,7 +23018,7 @@ pre[class*=language-]:before {
     color: #fff;
     padding: 15px;
     position: relative;
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .pcoded-header .dropdown .profile-notification .pro-head img {
@@ -23150,13 +23150,13 @@ pre[class*=language-]:before {
 
 .mob-toggler:hover span,
   .mobile-menu:hover span {
-    background-color: #3b4650;
+    background-color: #54e2b7;
 }
 
 .mob-toggler:hover span:after, .mob-toggler:hover span:before,
     .mobile-menu:hover span:after,
     .mobile-menu:hover span:before {
-    background-color: #3b4650;
+    background-color: #54e2b7;
     width: 100%;
 }
 
@@ -23185,7 +23185,7 @@ pre[class*=language-]:before {
     height: calc(100% - 56px);
     margin-top: 56px;
     top: 0;
-    background: #3b4650;
+    background: #54e2b7;
     color: #b9c7d4;
 }
 
@@ -23204,7 +23204,7 @@ pre[class*=language-]:before {
     align-items: center;
     display: inline-flex;
     float: left;
-    background: #3b4650;
+    background: #54e2b7;
     height: 56px;
     text-align: center;
     width: 235px;
@@ -23424,7 +23424,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar .pcoded-submenu {
-    background: #3b4650;
+    background: #54e2b7;
     padding: 15px 0;
 }
 
@@ -23788,7 +23788,7 @@ pre[class*=language-]:before {
     font-size: 50px;
     line-height: 1;
     padding-left: calc(50% - 25px);
-    color: #3b4650;
+    color: #54e2b7;
     text-shadow: 0 1.5px 2.94px rgba(4, 26, 55, 0.15);
     width: 100%;
     height: 40px;
@@ -23849,7 +23849,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.theme-horizontal .pcoded-inner-navbar .pcoded-hasmenu .pcoded-submenu a {
-    color: #3b4650;
+    color: #54e2b7;
     padding: 10px 20px 10px 30px;
 }
 
@@ -23896,7 +23896,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.theme-horizontal .pcoded-inner-navbar .pcoded-hasmenu .pcoded-submenu .pcoded-submenu a {
-    color: #3b4650;
+    color: #54e2b7;
     padding: 10px 20px 10px 30px;
 }
 
@@ -23936,7 +23936,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.theme-horizontal ~ .pcoded-header .b-title {
-    color: #3b4650;
+    color: #54e2b7;
 }
 
 .pcoded-navbar.theme-horizontal ~ .pcoded-header[class*='header-'] .b-title {
@@ -24050,7 +24050,7 @@ pre[class*=language-]:before {
     .pcoded-header .input-group-text,
   .pcoded-header a,
   .pcoded-header dropdown-toggle {
-        color: #3b4650;
+        color: #54e2b7;
     }
 
     .pcoded-header .input-group-text:hover,
@@ -24076,7 +24076,7 @@ pre[class*=language-]:before {
         content: "\e89a";
         font-family: "feather";
         font-size: 20px;
-        color: #3b4650;
+        color: #54e2b7;
         position: absolute;
         right: 10px;
         top: 0;
@@ -24103,7 +24103,7 @@ pre[class*=language-]:before {
     .pcoded-header .dropdown-menu,
   .pcoded-header .dropdown-menu a,
   .pcoded-header .search-close .input-group-text {
-        color: #3b4650;
+        color: #54e2b7;
     }
 
     .pcoded-header .m-header {
@@ -24322,7 +24322,7 @@ pre[class*=language-]:before {
     display: block;
     flex: 0 0 auto;
     width: 2.25rem;
-    background-color: #3b4650;
+    background-color: #54e2b7;
     z-index: 9;
 }
 
@@ -24357,7 +24357,7 @@ pre[class*=language-]:before {
 
 .theme-horizontal .sidenav-horizontal:after, .theme-horizontal .sidenav-horizontal:before {
     content: "";
-    background: #3b4650;
+    background: #54e2b7;
     width: 100%;
     position: absolute;
     top: 0;
@@ -24677,7 +24677,7 @@ pre[class*=language-]:before {
       .theme-color > a span:before {
     width: 32%;
     left: 0;
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .lay-customizer .theme-color > a span:after,
@@ -24836,7 +24836,7 @@ pre[class*=language-]:before {
 
 .lay-customizer .theme-color.header-color > a[data-value="header-dark"] > span:nth-child(1),
   .theme-color.header-color > a[data-value="header-dark"] > span:nth-child(1) {
-    background: linear-gradient(to right, #3b4650, #647688);
+    background: linear-gradient(to right, #54e2b7, #647688);
 }
 
 .lay-customizer .theme-color.header-color > a[data-value="header-dark"] > span:nth-child(1):after, .lay-customizer .theme-color.header-color > a[data-value="header-dark"] > span:nth-child(1):before,
@@ -24847,7 +24847,7 @@ pre[class*=language-]:before {
 
 .lay-customizer .theme-color.header-color.small > a[data-value="header-dark"],
   .theme-color.header-color.small > a[data-value="header-dark"] {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .lay-customizer .theme-color.header-color > a[data-value="header-orenge"] > span:nth-child(1),
@@ -25054,12 +25054,12 @@ pre[class*=language-]:before {
 
 .lay-customizer .theme-color.brand-color > a[data-value="brand-dark"] > span:nth-child(1):before,
   .theme-color.brand-color > a[data-value="brand-dark"] > span:nth-child(1):before {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .lay-customizer .theme-color.brand-color.small > a[data-value="brand-dark"],
   .theme-color.brand-color.small > a[data-value="brand-dark"] {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .lay-customizer .theme-color.brand-color > a[data-value="brand-orenge"] > span:nth-child(1):before,
@@ -25156,7 +25156,7 @@ pre[class*=language-]:before {
 .doc-img > a span:before {
     width: 30%;
     left: 0;
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .doc-img > a span:after {
@@ -25247,7 +25247,7 @@ pre[class*=language-]:before {
 }
 
 .doc-img.header-color > a[data-value="header-dark"] > span:nth-child(1) {
-    background: linear-gradient(to right, #3b4650, #647688);
+    background: linear-gradient(to right, #54e2b7, #647688);
 }
 
 .doc-img.header-color > a[data-value="header-dark"] > span:nth-child(1):after, .doc-img.header-color > a[data-value="header-dark"] > span:nth-child(1):before {
@@ -25327,7 +25327,7 @@ pre[class*=language-]:before {
 }
 
 .doc-img.brand-color > a[data-value="brand-dark"] > span:nth-child(1):before {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .doc-img.brand-color > a[data-value="brand-orenge"] > span:nth-child(1):before {
@@ -25368,7 +25368,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.menu-light .header-logo {
-    background-color: #3b4650;
+    background-color: #54e2b7;
 }
 
 .pcoded-navbar.menu-light .header-logo .logo-dark {
@@ -26022,7 +26022,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-header.header-dark {
-    background: linear-gradient(to right, #3b4650, #647688);
+    background: linear-gradient(to right, #54e2b7, #647688);
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -26092,7 +26092,7 @@ pre[class*=language-]:before {
 }
 
 .pcoded-header.header-dark .main-search .search-close > .input-group-text {
-    color: #3b4650;
+    color: #54e2b7;
 }
 
 .pcoded-header.header-dark .main-search.open .input-group {
@@ -26127,8 +26127,8 @@ pre[class*=language-]:before {
 }
 
 .pcoded-header.header-dark .main-search.open .input-group .search-btn {
-    background: #3b4650;
-    border-color: #3b4650;
+    background: #54e2b7;
+    border-color: #54e2b7;
 }
 
 .pcoded-header.header-dark .main-search.open .input-group .search-btn .input-group-text {
@@ -26145,7 +26145,7 @@ pre[class*=language-]:before {
 
 .pcoded-header.header-dark .dropdown .profile-notification .pro-head {
     color: #fff;
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .pcoded-header.header-dark .dropdown .profile-notification .pro-head .dud-logout {
@@ -26154,7 +26154,7 @@ pre[class*=language-]:before {
 
 .pcoded-header.header-dark .b-bg {
     background: #fff;
-    color: #3b4650;
+    color: #54e2b7;
 }
 
 .pcoded-header.header-orenge {
@@ -27172,7 +27172,7 @@ pre[class*=language-]:before {
 
 .pcoded-header.brand-dark .m-header,
 .pcoded-header[class*="header-"].brand-dark .m-header {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 .pcoded-header.brand-dark .m-header .b-bg,
@@ -27260,7 +27260,7 @@ pre[class*=language-]:before {
 
 .pcoded-header.brand-default .header-logo,
 .pcoded-header[class*="header-"].brand-default .header-logo {
-    background: #3b4650;
+    background: #54e2b7;
 }
 
 /* ====== [ Brand color end ] ======== */
