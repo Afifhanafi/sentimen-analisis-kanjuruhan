@@ -51,6 +51,15 @@
 "cmn:hanya\n",
 "gede:besar\n",
 
+"dipikirin:dipikirkan\n",
+"korup:korupsi\n",
+"kembang:progres\n",
+"dikurangi:dikurangkan\n",
+"gaperlu:engga perlu\n",
+"sagala:segala\n",
+"gabisa:engga bisa\n",
+"minimal:minim\n",
+
 - list stop baru
 "haha\n",
 "rang\n",
