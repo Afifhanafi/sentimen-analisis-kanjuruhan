@@ -1484,7 +1484,6 @@ slangwords_list = [
     "ok:setuju\n",
     "okay:setuju\n",
     "bubarin:bubarkan\n",
-    "call:telepon\n",
     "eks:mantan\n",
     "jempol:ibu jari\n",
     "gembosi:jadi gembos\n",
