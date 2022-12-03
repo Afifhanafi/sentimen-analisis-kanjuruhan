@@ -98,6 +98,7 @@ class PreprocessingController:
             
             print(index+1)
         
+        # Simpan tweets ke database
         for i in range(0, len(self.data_akhir)+1):
             dataset = model.query.filter_by(id=i).update({model.clean_tweets : self.data_akhir[i-1]})
             
