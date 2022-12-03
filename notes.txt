@@ -66,3 +66,4 @@ flask db upgrade
 Selection:
 ctrl+shift+alt+pgup/pgdown
 alt+j untuk selek akhir
+ctrl+f2

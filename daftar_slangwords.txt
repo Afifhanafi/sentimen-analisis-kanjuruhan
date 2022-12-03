@@ -68,7 +68,7 @@ azas:asas
 bacod:banyak bicara
 bacot:banyak bicara
 bacotan:pembicaraan
-bacotnya:banyakbicara
+bacotnya:banyak bicara
 bacotttt:banyak bicara
 bae:baik
 baget:keras kepala
@@ -81,8 +81,8 @@ bangsat:kurang ajar
 bangsattt:bangsat
 bankrakyatindonesia:bank rakyat indonesia
 banyk:banyak
-bapa:bapak
-bapack:bapak
+bapa:ayah
+bapack:ayah
 bapakk:bapak
 baper:bawa perasaan
 bapuk:rusak
@@ -115,12 +115,12 @@ beres:selesai
 berhoax:berbohong
 berjln:berjalan
 berpolimik:berpolemik
-berterimaksih:berterima kasih
+berterimaksih:terima kasih
 berubah:ubah
 berulang:beberapa
 berulangkali:beberapa kali
 best:baik
-bestiee:sahabat
+bestiee:kawan
 better:lebih baik
 bf:pacar
 bgitu:begitu
@@ -133,7 +133,7 @@ bgtu:gitu
 bhas:bahas
 bhg:bahagia
 bhw:bahwa
-biang kerok:pembuat gaduh
+biang:pembuat
 biar:agar
 biarpun:meskipun
 big:besar
@@ -169,6 +169,7 @@ bomb:bom
 bonceng:ikut
 booking:pesan
 bosok:busuk
+both:keduanya
 bpk:bapak
 br:baru
 bray:sahabat
@@ -218,7 +219,6 @@ clear:jelas
 club:klub
 cm:cuma
 cmiiw:koreksi saya
-cmn:cuman
 cmn:hanya
 cnt:cinta
 coach:pelatih
@@ -226,7 +226,7 @@ comberan:air kotor
 congrats:selamat
 copot:lepas
 courtesy:milik
-cover both side:berimbang tidak memihak
+cover:tutup
 cringe:malu
 crisis:krisis
 crop:potong
@@ -273,7 +273,6 @@ digiring:didorong
 digoreng:dibahas
 diijabah:dikabulkan
 dijadiin:dijadikan
-dikurangi:dikurangin
 dikurangi:dikurangkan
 dilaksakan:dilaksanakan
 dimungkiri:dibantah
@@ -283,6 +282,7 @@ dipake:dipakai
 dipeksono:dipaksakan
 dipiara:dipelihara
 dipikirin:dipikirkan
+direct:langsung
 director:direktur
 dirubah:diubah
 disediain:disiapkan
@@ -352,11 +352,11 @@ fairplay:bermain adil
 fake:palsu
 fans:penggemar
 faq:pertanyaan umum
-favorit:kesukaan
+favorit:suka
 fc:klub sepakbola
 fham:paham
 fhm:paham
-fighting spirit:semangat bertarung
+fighting:bertarung
 fik:pasti
 firnah:fitnah
 fix:pasti
@@ -365,7 +365,7 @@ flare:api
 football:sepak bola
 for:untuk
 framing:memandang
-friendly match:pertandingan persahabatan
+friendly:persahabatan
 ft:foto
 full:penuh
 fulltime:waktu penuh
@@ -482,7 +482,7 @@ head:kepala
 hepi:senang
 heran:bingung
 heselah:sulit
-high pressing direct: dengan tekanan tinggi
+high:tinggi
 hit:terpopuler
 hits:terkini
 hng:hingga
@@ -517,6 +517,7 @@ intrikkk:intrik
 iow:dengan kata lain
 ipon:iphone
 ir:insinyur
+is:adalah
 isine:isinya
 isinua:isinya
 iso:bisa
@@ -531,6 +532,7 @@ iy:ya
 jadual:jadwal
 jadul:lama 
 jajaheun:jauh
+jajauheun:jauh
 jane:katanya
 jare:katanya
 jbtn:jabatan
@@ -552,7 +554,7 @@ jgnkan:jangan
 jidat:dahi
 jigana:sepertinya
 jikowi:jokowi
-jk: jika
+jk:jika
 jkw:jokowi
 jl:jalan
 jln:jalan
@@ -584,7 +586,7 @@ karepmu:terserah kamu
 karn:karena
 karna:karena
 karuane:mendingan
-kau:anda
+kau:kamu
 kawanbinnya:kawan binaannya
 kaya:seperti
 kayak:seperti
@@ -611,7 +613,7 @@ kena:sentuh
 kene:aja
 kenehlah:masih
 kenpa:kenapa
-kepilih:terpilih
+kepilih:pilih
 kepla:kepala
 kepo:penasaran
 kerap:tuai
@@ -619,6 +621,7 @@ kerawat:pelihara
 kere:miskin
 kerenn:keren
 kerjomu:kerja kamu
+kerok:rusuh
 kesalahane:kesalahannya
 ket:ko
 ketat:erat
@@ -632,7 +635,7 @@ kgk:tidak
 ki:semua
 kian:semakin
 kicep:diam
-kick off:memulai
+kick:tendangan
 kickoff:mulai
 kinclong:bersih
 king:raja
@@ -730,7 +733,7 @@ lo:kamu
 loba:banyak
 lobbaaaaaaaaaaaaaa:banyak
 loe:kamu
-lol:tertawa
+lol:lucu
 lord:tuan
 love:cinta
 lu:kamu
@@ -767,7 +770,7 @@ mangkeli:kesal
 mantab:mantap
 mantap:mantap
 manut:nurut
-marquee player:pemain populer
+marquee:populer
 masak:masa
 maseh:masih
 masiv:masif
@@ -777,8 +780,6 @@ masyarak:masyarakat
 masyarakatpun:masyarakat pun
 masyarakt:masyarakat
 masyarkat:masyarakat
-match match:pengaturan pertandingan
-match:perbandingan
 match:pertandingan
 matiin:matikan
 max:maksimal
@@ -809,9 +810,10 @@ mencolok:terlihat jelas
 mencopot:melepas
 mendiamkan:diam
 mending:dari pada
+menegemen:kelola
 meneketehe:tidak tahu
 menel:centil
-menepis:menolak
+menepis:tolak
 mengaharapkan:mengharapkan
 mengaman:aman
 mengatasnamakan:memakai nama
@@ -1047,6 +1049,7 @@ nyungsep:jatuh
 nyuruh:menyuruh
 nyusahin:susah
 nyuwon:meminta
+off:selesai
 official:resmi
 offise:sisi luar
 offside:sisi luar
@@ -1122,7 +1125,7 @@ perpanjangaan:perpanjangan
 perpanjanggan:perpanjangan
 perpanjmg:perpanjang
 persepakbolaan:sepak bola
-pesik:pesik kediri
+pesik:persik kediri
 pg:pagi
 pgg:pegang
 php:pembohong
@@ -1137,6 +1140,7 @@ pk:pakai
 pke:pakai
 planning:rencana
 play:bermain
+player:pemain
 plg:pulang
 plonga plongo:terkejut
 pls:tolong
@@ -1152,7 +1156,7 @@ poles:bantu
 politics:politik
 polling:pemilihan
 porak:rusak
-positive thingking:berpikir Positif
+positive:positif
 postingan:unggahan
 power:kuasa
 prakompetisi:persaingan
@@ -1162,6 +1166,7 @@ prcya:percaya
 predisen:presiden
 preiode:periode
 prengkap:perangkap
+pressing:mendesak
 prihatin:khawatir
 prilaku:perilaku
 prinsipe:prinsipnya
@@ -1230,7 +1235,7 @@ rojo:raja
 role playing:bermain peran
 rombak:ganti
 ros:terus
-rotfl:tertawa
+rotfl:lucu
 rubah:ubah
 rugi:menderita
 runner:pelari
@@ -1277,12 +1282,12 @@ sekedar:sekadar
 sela:celah
 selamatin:selamatkan
 selamatkeun:selamatkan
-selametin:selamatin
+selametin:selamatkan
 selamtin:selamatkan
 selebritis:terkenal
 selip:meluangkan
 selow:santai
-semagat:semangat 
+semagat:semangat
 seminfinalis:pemain semi final
 semono:segitu
 sempat:ada waktu
@@ -1305,6 +1310,7 @@ service:layanan
 setback:kemunduran
 setop:berhenti
 setres:stres
+settle:menetap
 settle:selesai
 setujuannya:setuju
 sgr:segera
@@ -1312,12 +1318,13 @@ sgt:sangat
 sgtu:segitu
 sgtuny:segitunya
 share:bagi
-sharing:berbagi
+sharing:bagi
 shg:sehingga
 showone:pergi
 siapaa:siapa
 sidane:bisanya
 sidane:jadinya
+side:sama
 sien:takut
 sigana:sepertinya
 sikil:kaki
@@ -1362,13 +1369,13 @@ sosmed:sosial media
 sound:suara
 soyo:semakin
 sperti:seperti
+spirit:semangat
 spk:sepak
 sports:olahraga
 sprti:seperti
 sprtnya:sepertinya
 spt:seperti
 spy:supaya
-ss:cuplikan layar
 ss:tangkapan layar
 ssb:sekolah sepakbola
 ssk:besok
@@ -1396,7 +1403,6 @@ support:dukung
 supporter:penonton
 supporternya:pendukungnya
 survey:survei
-survive settle:bertahan menetap
 survive:tahan
 suu:anjing
 suuu:anjing
@@ -1445,6 +1451,7 @@ th:tahun
 that:itu
 thd:terhadap
 thdp:terhadap
+thingking:berpikir
 thn:tahun
 thr:tunjangan hari raya
 thun:tahun
@@ -1460,7 +1467,6 @@ tkut:takut
 tlg:tolong
 to iki:ini
 toak:tolak 
-today is timnas day:hari ini adalah hari timnas
 today:hari ini
 tonggos:gigi tidak beraturan
 too kiihh:ini
@@ -1554,7 +1560,6 @@ yg:yang
 yimnas:timnas
 yng:yang
 yohh:iya
-you:anda
 you:kamu
 yoyok:ayo
 yth:yang terhormat
