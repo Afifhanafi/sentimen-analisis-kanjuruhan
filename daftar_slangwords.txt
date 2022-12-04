@@ -83,7 +83,7 @@ bankrakyatindonesia:bank rakyat indonesia
 banyk:banyak
 bapa:ayah
 bapack:ayah
-bapakk:bapak
+bapakk:ayah
 baper:bawa perasaan
 bapuk:rusak
 barusan:baru saja
@@ -170,7 +170,7 @@ bonceng:ikut
 booking:pesan
 bosok:busuk
 both:keduanya
-bpk:bapak
+bpk:ayah
 br:baru
 bray:sahabat
 brb:akan segera kembali
@@ -199,7 +199,6 @@ bwang:bang
 byangin:wujud
 byk:banyak
 call:menelpon
-call:telepon
 can:belum
 capek:lelah
 caper:cari perhatian
@@ -500,6 +499,7 @@ hut:hari ulang tahun
 hy:hanya
 idem:diam
 ig:instagram
+iki:ini
 ikutin:ikuti
 impich:mimpi
 indo:indonesia
@@ -572,7 +572,6 @@ jutek:galak
 kab:kabupaten
 kabare:kabarnya
 kabeh:semua
-kacau:hancur
 kaco:kacau
 kadron:kadrun 
 kaga:tidak
@@ -637,6 +636,7 @@ kian:semakin
 kicep:diam
 kick:tendangan
 kickoff:mulai
+kiihh:ini
 kinclong:bersih
 king:raja
 kipak:bohong
@@ -735,6 +735,7 @@ lobbaaaaaaaaaaaaaa:banyak
 loe:kamu
 lol:lucu
 lord:tuan
+lotnok:kontol
 love:cinta
 lu:kamu
 luck:sukses
@@ -760,7 +761,7 @@ males:malas
 maluin:malu
 mamak:ibu
 managing:manajemen
-manajemen:mengurus
+manajemen:kelola
 mandek:berhenti
 mang:memang
 manggil:panggil
@@ -848,7 +849,7 @@ mikirnya:pikirnya
 milih:pilih
 mimin:admin
 min:admin
-mini soccer:sepakbola kecil
+mini:kecil
 minimal:minim
 minn:admin
 minus:minim
@@ -1076,14 +1077,14 @@ org:orang
 orovokasi:provokasi
 out:keluar
 overall:keseluruhan
-pakde:bapak
-pakdhe:bapak
+pakde:ayah
+pakdhe:ayah
 pake:pakai
 pakenya:pakai
 pakum:selesai
 palbis:paling bisa
 paniiiik:panik
-panjenengan:anda
+panjenengan:kamu
 panteslah:pantaslah
 parte:partai
 pasrah:menyerahkan
@@ -1103,12 +1104,12 @@ pekok:bodoh
 pelakyou:pelaku
 pemapin:pemain
 pemr:pemerintah
-penalty kick:tendangan pinalti
+penalty:pinalti
 penasaran:ingin tahu
 pengen:ingin
 penghianat:pengkhianat
 pengin:mau
-penguruse:urus
+penguruse:kelola
 penumdaan:penundaan
 penundaana:penundaan
 penyerahan:memberikan
@@ -1199,7 +1200,8 @@ rangking:peringkat
 ranking:peringkat
 raono:tidak ada
 rapopo:tidak apa
-rasak rasakke:rasa rasanya
+rasak:rasa
+rasakke:rasanya
 real:nyata
 reasoneble:pantas
 recokin:ganggu
@@ -1360,6 +1362,7 @@ smwnya:semuanya
 sndiri:sendiri
 sndri:sendiri
 sobat:sahabat
+soccer:sepak bola
 socmed:media sosial
 sold:habis
 songong:sombong
@@ -1400,7 +1403,7 @@ sumbu:benang
 super:hebat
 suporter:dukung
 support:dukung
-supporter:penonton
+supporter:dukung
 supporternya:pendukungnya
 survey:survei
 survive:tahan
@@ -1465,11 +1468,9 @@ tivi:tv
 tkt:takut
 tkut:takut
 tlg:tolong
-to iki:ini
 toak:tolak 
 today:hari ini
 tonggos:gigi tidak beraturan
-too kiihh:ini
 tp:tapi
 tpi:tapi
 tpii:tapi
