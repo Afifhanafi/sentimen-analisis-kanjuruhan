@@ -159,7 +159,7 @@ bngsat:kurang ajar
 bngst:kurang ajar
 bnr:benar
 bnyak:banyak
-bnyakin:banyakin
+bnyakin:banyakan
 bnyk:banyak
 bobrok:rusak
 bolautama:bola utama
@@ -1335,7 +1335,7 @@ simbah:basah
 simpel:sederhana
 simpulin:simpulkan
 sing:yang
-sini tae yong:shin tae yong
+sini:shin
 sipesek:si pesek
 situ:kamu
 sj:saja
@@ -1413,6 +1413,7 @@ sy:saya
 sya:saya
 syahwat:nafsu
 syg:sayang
+syukur:alhamdulillah
 taii:tai
 taik:tai
 tak:mau
@@ -1535,6 +1536,7 @@ wajahh:wajah
 wajar:biasa
 wakanda:indonesia
 waktuny:waktunya
+walikota:wali kota
 waline:walinya
 wani:berani
 want:mau

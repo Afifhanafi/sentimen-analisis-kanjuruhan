@@ -1280,7 +1280,7 @@ slangwords_list = [
     "germany:jerman\n",
     "tambhan:tambahan\n",
     "tida:tidak\n",
-    "bnyakin:banyakin\n",
+    "bnyakin:banyakan\n",
     "skolah:sekolah\n",
     "pngdil:pengadilan\n",
     "lawak:lucu\n",
@@ -1422,7 +1422,7 @@ slangwords_list = [
     "series:seri\n",
     "ujicobanya:uji cobanya\n",
     "utd:united\n",
-    "sini tae yong:shin tae yong\n",
+    "sini:shin\n",
     "timnass:tim nasional\n",
     "timnas:tim nasional\n",
     "satuuuuuu:satu\n",
@@ -1633,6 +1633,8 @@ slangwords_list = [
     "jebolan:lulusan\n",
     "pergerakannya:gerakan\n",
     "jajauheun:jauh\n",
+    "walikota:wali kota\n",
+    "syukur:alhamdulillah\n",
 ]
 
 res = []

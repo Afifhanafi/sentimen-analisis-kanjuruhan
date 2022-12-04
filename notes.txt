@@ -67,3 +67,4 @@ Selection:
 ctrl+shift+alt+pgup/pgdown
 alt+j untuk selek akhir
 ctrl+f2
+ctrl+shift+panah kiri

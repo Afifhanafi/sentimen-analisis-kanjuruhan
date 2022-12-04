@@ -75,7 +75,6 @@ stopwords_list = [
     "berakhir\n",
     "berakhirlah\n",
     "berakhirnya\n",
-    "berapa\n",
     "berapakah\n",
     "berapalah\n",
     "berapapun\n",
@@ -805,7 +804,6 @@ stopwords_list = [
     "bakal\n",
     "bakalan\n",
     "balik\n",
-    "banyak\n",
     "bapak\n",
     "baru\n",
     "bawah\n",
@@ -1034,7 +1032,6 @@ stopwords_list = [
     "jangan\n",
     "jangankan\n",
     "janganlah\n",
-    "jauh\n",
     "jawab\n",
     "jawaban\n",
     "jawabnya\n",
@@ -1433,7 +1430,6 @@ stopwords_list = [
     "tadi\n",
     "tadinya\n",
     "tahu\n",
-    "tahun\n",
     "tak\n",
     "tambah\n",
     "tambahnya\n",
@@ -2686,6 +2682,7 @@ stopwords_list = [
     "ji\n",
     "nas\n",
     "up\n",
+    "ayah\n",
 
 ]
 
