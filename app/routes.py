@@ -124,7 +124,7 @@ def DatasetBeforeKanjuruhan():
         DataController().importDataset(request.files["fileCSV"], DatasetBefore)
         return redirect(url_for('DatasetBeforeKanjuruhan'))
 
-#Dataset Sesudah Kejadian Kanjuruhan
+#Dataset Sesudah Tragedi Kanjuruhan
 @app.route('/api/dataset-sesudah-tragedi-kanjuruhan', methods=["GET"])
 def apiDatasetAfterKanjuruhan():
     dataset = DataController().retrieveJSON(DatasetAfter)
