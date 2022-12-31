@@ -2683,6 +2683,10 @@ stopwords_list = [
     "nas\n",
     "up\n",
     "ayah\n",
+    "ht\n",
+    "amin\n",
+    "eheheehehe\n",
+    "hahahaha\n",
 
 ]
 

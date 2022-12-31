@@ -17,6 +17,7 @@ aj:aja
 aja:jangan
 ajah:aja
 ajakin:ajakan
+ajaya:aja
 aje:saja
 akeh:banyak
 akooh:saya
@@ -29,7 +30,7 @@ alesan:alasan
 alhamdulillah:syukur
 alias:sama dengan
 aliss:sama dengan
-alkhamdulillah:alhamdulillah
+alkhamdulillah:syukur
 all:semua
 alloh:allah
 alus:halus
@@ -87,6 +88,7 @@ bapakk:ayah
 baper:bawa perasaan
 bapuk:rusak
 barusan:baru saja
+batrerainya:
 bayangin:bayangkan
 bbbrp:beberapa
 bbrp:beberapa
@@ -116,6 +118,7 @@ berhoax:berbohong
 berjln:berjalan
 berpolimik:berpolemik
 berterimaksih:terima kasih
+bertgg:tanggung
 berubah:ubah
 berulang:beberapa
 berulangkali:beberapa kali
@@ -132,6 +135,7 @@ bgt:banget
 bgtu:gitu
 bhas:bahas
 bhg:bahagia
+bhkan:bahkan
 bhw:bahwa
 biang:pembuat
 biar:agar
@@ -195,6 +199,7 @@ buktiin:buktikan
 buktina:buktinya
 bungkam:tutup mulut
 buosokkkkk:busuk
+buukti:bukti
 bwang:bang
 byangin:wujud
 byk:banyak
@@ -202,6 +207,7 @@ call:menelpon
 can:belum
 capek:lelah
 caper:cari perhatian
+cawe:tanggung jawab
 cc:teruskan
 cekap:efisien
 ceremonial:pembukaan
@@ -242,6 +248,7 @@ dagel:lucu
 dagelan:lucu
 damat:tidak peduli
 dapet:dapat
+dapetin:dapatkan
 dara:darah
 dateng:datang
 day:hari
@@ -278,6 +285,7 @@ dimungkiri:dibantah
 dinjamin:dijamin
 diomongin:dibicarakan
 dipake:dipakai
+dipaksain:dipaksakan
 dipeksono:dipaksakan
 dipiara:dipelihara
 dipikirin:dipikirkan
@@ -343,6 +351,7 @@ epsd:episode
 eror:masalah
 etung:hitung
 evalusai:evaluasi
+even:peristiwa
 event:kegiatan
 eyes:mata
 faham:paham
@@ -352,7 +361,7 @@ fake:palsu
 fans:penggemar
 faq:pertanyaan umum
 favorit:suka
-fc:klub sepakbola
+fc:klub sepak bola
 fham:paham
 fhm:paham
 fighting:bertarung
@@ -406,6 +415,7 @@ geger:ribut
 geje:tidak jelas
 gek:bukan
 gelar:mulai
+gelem:mau
 geloran:gelora
 gemar:suka
 gembar:berteriak
@@ -498,6 +508,7 @@ hrsnya:harusnya
 hut:hari ulang tahun
 hy:hanya
 idem:diam
+idup:hidup
 ig:instagram
 iki:ini
 ikutin:ikuti
@@ -510,6 +521,7 @@ initu:ini
 insert:memasukan
 inspeksi:pemeriksaan
 install:pasang
+insurance:asuransi
 inti:utama
 intrik:bohong
 intrik:kabar bohong
@@ -520,6 +532,7 @@ ir:insinyur
 is:adalah
 isine:isinya
 isinua:isinya
+ismet:ismed
 iso:bisa
 issu:isu
 issue:isu
@@ -529,10 +542,12 @@ isyu:isu
 it:itu
 iti:itu
 iy:ya
+jadiin:jadikan
 jadual:jadwal
 jadul:lama 
 jajaheun:jauh
 jajauheun:jauh
+jamn:jamin
 jane:katanya
 jare:katanya
 jbtn:jabatan
@@ -569,6 +584,7 @@ jowoki:jokowi
 jujurly:sejujurnya
 justivikasi:pembenaran
 jutek:galak
+jwb:jawab
 kab:kabupaten
 kabare:kabarnya
 kabeh:semua
@@ -732,6 +748,7 @@ lnjut:lanjut
 lo:kamu
 loba:banyak
 lobbaaaaaaaaaaaaaa:banyak
+lobi:hubung
 loe:kamu
 lol:lucu
 lord:tuan
@@ -776,6 +793,7 @@ masak:masa
 maseh:masih
 masiv:masif
 maslah:masalah
+masuh:masih
 masukin:masukan
 masyarak:masyarakat
 masyarakatpun:masyarakat pun
@@ -818,7 +836,7 @@ menepis:tolak
 mengaharapkan:mengharapkan
 mengaman:aman
 mengatasnamakan:memakai nama
-mengbal:sepakbola
+mengbal:sepak bola
 mengerti:paham
 menggolkan:menyukseskan
 menggoreng:membahas
@@ -881,6 +899,7 @@ mo:mau
 moal:tidak
 modus:maksud lain
 momok:takut
+mosok:masa
 motif:pola
 motone:mata
 moyang:leluhur
@@ -1065,10 +1084,12 @@ olh:oleh
 oligakri:oligarki
 omnifora:omnivora
 omong:bicara
+omset:penghasilan
 online:daring
 ono:ada
 onside:sisi dalam
 opo:apa
+oponeh:apanya
 opsetin:sisi luar
 optimistis:percaya
 or:atau
@@ -1077,6 +1098,7 @@ org:orang
 orovokasi:provokasi
 out:keluar
 overall:keseluruhan
+pac:ayah
 pakde:ayah
 pakdhe:ayah
 pake:pakai
@@ -1156,6 +1178,7 @@ pointny:intinya
 poles:bantu
 politics:politik
 polling:pemilihan
+ponsel:handphone
 porak:rusak
 positive:positif
 postingan:unggahan
@@ -1172,6 +1195,7 @@ prihatin:khawatir
 prilaku:perilaku
 prinsipe:prinsipnya
 priode:periode
+privacy:pribadi
 private:pribadi
 privilege:hak istimewa
 prlu:perlu
@@ -1233,6 +1257,7 @@ rip:meninggal dunia
 riuh:berisik
 rival:musuh
 ro:sama
+rodok:agak
 rojo:raja
 role playing:bermain peran
 rombak:ganti
@@ -1380,7 +1405,7 @@ sprtnya:sepertinya
 spt:seperti
 spy:supaya
 ss:tangkapan layar
-ssb:sekolah sepakbola
+ssb:sekolah sepak bola
 ssk:besok
 ssuaikn:sesuaikan
 ssuikn:sesuaikan
@@ -1388,6 +1413,7 @@ stage:panggung
 star:mulai
 statemen:pernyataan
 statement:pernyataan
+statusa:statusnya
 stetment:pernyataan
 stj:setuju
 stlh:setelah
@@ -1413,7 +1439,6 @@ sy:saya
 sya:saya
 syahwat:nafsu
 syg:sayang
-syukur:alhamdulillah
 taii:tai
 taik:tai
 tak:mau
@@ -1450,6 +1475,7 @@ tetep:tetap
 tetiba:tiba tiba
 teu:tidak
 tgas:tegas
+tgg:tanggung
 tgl:tanggal
 th:tahun
 that:itu
@@ -1546,11 +1572,13 @@ wat:untuk
 water:air
 waton:santai
 way:cara
+weah:aja
 wes:udah
 wis:udah
 with:dengan
 wkt:waktu
 woles:santai
+woman:perempuan
 wong:orang
 wonge:orangnya
 working:kerja
