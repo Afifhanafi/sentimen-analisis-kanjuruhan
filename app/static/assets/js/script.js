@@ -685,10 +685,10 @@ $("#Preprocessing_Dataset_After").click(function () {
                                                         <a href="#Cleansing" class="nav-link" data-bs-toggle="tab"><em>Cleansing</em></a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="#Slangwords" class="nav-link" data-bs-toggle="tab"><em>Normalisasi</em></a>
+                                                        <a href="#Slangwords" class="nav-link" data-bs-toggle="tab">Normalisasi</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="#StopwordsRemoval" class="nav-link" data-bs-toggle="tab"><em>Menghapus Kata Stop</em></a>
+                                                        <a href="#StopwordsRemoval" class="nav-link" data-bs-toggle="tab">Menghapus Kata <em>Stop</em></a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a href="#Stemming" class="nav-link" data-bs-toggle="tab"><em>Stemming</em></a>

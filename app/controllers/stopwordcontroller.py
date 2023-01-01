@@ -28,7 +28,7 @@ class StopwordController:
             db.session.add(uploadStopword)
             db.session.commit()
             
-            flash("The data successfully saved", "success")
+            flash("Data berhasil disimpan", "success")
         except Exception as e:
             flash(f"Data failed to save", "danger")
             return e

@@ -31,7 +31,7 @@ class SlangwordController:
             db.session.add(uploadSlangword)
             db.session.commit()
             
-            flash("The data successfully saved", "success")
+            flash("Data berhasil disimpan", "success")
         except Exception as e:
             flash(f"Data failed to save", "danger")
             return e
