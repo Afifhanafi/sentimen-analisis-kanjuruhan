@@ -1180,7 +1180,7 @@ politics:politik
 polling:pemilihan
 ponsel:handphone
 porak:rusak
-positive:positif
+positive:Positif
 postingan:unggahan
 power:kuasa
 prakompetisi:persaingan

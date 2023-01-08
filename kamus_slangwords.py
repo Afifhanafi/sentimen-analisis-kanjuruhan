@@ -981,7 +981,7 @@ slangwords_list = [
     "dsr:dasar\n",
     "duwe:punya\n",
     "klau:kalau\n",
-    "positive:positif\n",
+    "positive:Positif\n",
     "thingking:berpikir\n",
     "jerat:kena\n",
     "minus:minim\n",
