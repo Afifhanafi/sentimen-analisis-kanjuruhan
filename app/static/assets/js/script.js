@@ -84,7 +84,7 @@ var table_labelling_before = $("#table_labelling_before").DataTable({
             `
                         <select name="label_data" id="opsi_label` +
             data.id +
-            `" class="btn btn-success">
+            `" class="btn btn-primary">
                             <option value="` +
             data.label +
             `" selected>` +
@@ -99,7 +99,7 @@ var table_labelling_before = $("#table_labelling_before").DataTable({
             `
                         <select name="label_data" id="opsi_label` +
             data.id +
-            `" class="btn btn-danger">
+            `" class="btn btn-warning">
                             <option value="` +
             data.label +
             `" selected>` +
@@ -172,7 +172,7 @@ var table_labelling_after = $("#table_labelling_after").DataTable({
             `
                         <select name="label_data" id="opsi_label` +
             data.id +
-            `" class="btn btn-success">
+            `" class="btn btn-primary">
                             <option value="` +
             data.label +
             `" selected>` +
@@ -187,7 +187,7 @@ var table_labelling_after = $("#table_labelling_after").DataTable({
             `
                         <select name="label_data" id="opsi_label` +
             data.id +
-            `" class="btn btn-danger">
+            `" class="btn btn-warning">
                             <option value="` +
             data.label +
             `" selected>` +
@@ -212,11 +212,11 @@ $("#table_labelling_after tbody").on(
     value = $(this).find(":selected").text();
 
     if (value == "Positif") {
-      $("#opsi_label" + id).removeClass("btn btn-danger");
-      $("#opsi_label" + id).addClass("btn btn-success");
+      $("#opsi_label" + id).removeClass("btn btn-warning");
+      $("#opsi_label" + id).addClass("btn btn-primary");
     } else {
-      $("#opsi_label" + id).removeClass("btn btn-success");
-      $("#opsi_label" + id).addClass("btn btn-danger");
+      $("#opsi_label" + id).removeClass("btn btn-primary");
+      $("#opsi_label" + id).addClass("btn btn-warning");
     }
 
     $.ajax({
@@ -1106,7 +1106,7 @@ $("#uji_Dataset_before").click(function () {
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Positif</b></td>
-                                                                <td class="bg-primary">
+                                                                <td class="bg-success">
                                                                     <h5 class="text-light">` +
           response.cmatrix["tPositif"] +
           `</h5>
@@ -1133,7 +1133,7 @@ $("#uji_Dataset_before").click(function () {
           `</h5>
                                                                     <small>FP (<em>False Positive</em>)</small>
                                                                 </td>
-                                                                <td class="bg-primary">
+                                                                <td class="bg-success">
                                                                     <h5 class="text-light">` +
           response.cmatrix["tNegatif"] +
           `</h5>
@@ -1310,8 +1310,8 @@ $("#uji_Dataset_before").click(function () {
           response.cmatrix["total_n"] +
           `],
                                             backgroundColor: [
-                                                'rgb(54, 162, 235)',
-                                                'rgb(255, 99, 132)',
+                                                'rgb(46, 216, 182)',
+                                                'rgb(255, 182, 77)',
                                             ],
                                             hoverOffset: 1
                                             }]
@@ -1543,7 +1543,7 @@ $("#uji_Dataset_after").click(function () {
                                                             </tr>
                                                             <tr>
                                                                 <td class="align-middle"><b>Positif</b></td>
-                                                                <td class="bg-primary">
+                                                                <td class="bg-success">
                                                                     <h5 class="text-light">` +
           response.cmatrix["tPositif"] +
           `</h5>
@@ -1570,7 +1570,7 @@ $("#uji_Dataset_after").click(function () {
           `</h5>
                                                                     <small>FP (<em>False Positive</em>)</small>
                                                                 </td>
-                                                                <td class="bg-primary">
+                                                                <td class="bg-success">
                                                                     <h5 class="text-light">` +
           response.cmatrix["tNegatif"] +
           `</h5>
@@ -1747,8 +1747,8 @@ $("#uji_Dataset_after").click(function () {
           response.cmatrix["total_n"] +
           `],
                                             backgroundColor: [
-                                                'rgb(54, 162, 235)',
-                                                'rgb(255, 99, 132)',
+                                                'rgb(46, 216, 182)',
+                                                'rgb(255, 182, 77)',
                                             ],
                                             hoverOffset: 1
                                             }]
